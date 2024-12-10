@@ -6,6 +6,9 @@
 <?php include("../mod/top.php"); ?>
 <?php include("../mod/header.php"); ?>
 <?php
+
+if(!isset($_GET['_'])){
+
 $sql_contenido_pagina = "SELECT * FROM pag WHERE pagina = 'home'";
 $resultado_contenido_pagina = $conex->query($sql_contenido_pagina);
 if ($resultado_contenido_pagina->num_rows > 0) {
@@ -38,9 +41,45 @@ if ($resultado_contenido_pagina->num_rows > 0) {
   }
 }
 
+}else{
+    echo $_GET['_'];  
+    ?> <br> <?php
+    echo $_GET['category']; ?>
 
-if(isset($_GET['_'])){
-    echo $_GET['_'];
+<div class="container mt-5  ">
+<div class="row">
+    <div class="col-md-3">
+    <ul class="list-group">
+  <li class="list-group-item active" aria-current="true">An active item</li>
+  <li class="list-group-item">A second item</li>
+  <li class="list-group-item">A third item</li>
+  <li class="list-group-item">A fourth item</li>
+  <li class="list-group-item">And a fifth one</li>
+</ul>
+    </div>
+    <div class="col-md bg-danger"><br><br><br><br><br></div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
 }
 
 

@@ -90,7 +90,7 @@
                 let query = event.target.value;
                 query = query.replace(/\s+/g, '+') 
                         .replace(/[.,]/g, '');
-                const url = `/${query}`;
+                const url = `/p/category/${query}`;
                 window.location.href = url;
                 $('#buscar_producto').val() = '';
             }

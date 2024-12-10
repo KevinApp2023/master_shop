@@ -1,4 +1,4 @@
-<div class="footer  <?= $bgClass . " " . $textClass ?>">
+<div class="footer  m-0 <?= $bgClass . " " . $textClass ?>">
 <div class="container mt-5 p-2  <?= $bgClass . " " . $textClass ?>">
   <footer class="py-5 ">
     <div class="row">
