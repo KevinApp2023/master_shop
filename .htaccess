@@ -1,0 +1,5 @@
+
+RewriteEngine On
+
+RewriteRule ^$ /src/home.php [L,QSA]
+RewriteRule ^ofertas$ /src/ofertas.php [L,QSA]
