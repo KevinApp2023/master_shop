@@ -10,7 +10,8 @@
 <?php $id = $_GET['id']; ?>
 
 
-<div class="container ">
+<div class="container mt-5">
+    <div class="row">
     <div class="col-md-6 p-3">
 
 
@@ -49,9 +50,42 @@ if ($resultado_img_productos->num_rows > 0) {
 
 
 
-    <div class="col-md-6"></div>
-</div>
+    <div class="col-md-6 p-3">
+    <?php 
+$consult_productos = "SELECT * FROM products WHERE id = '$id'";
+$resultado_productos = $conex->query($consult_productos);
+$first = true; 
+if ($resultado_productos->num_rows > 0) {
+    while ($data_productos = $resultado_productos->fetch_assoc()) { 
+?>
+ <h3 class="bold-600"><?php echo $data_productos['producto']; ?></h3>
 
+ <?php if(!empty($data_productos['valor_producto_oferta'])){?>
+
+    <h4 class="card-val fst-italic text-decoration-line-through m-0 mt-4 text-danger">$ <?php echo $data_productos['valor_producto']; ?></h4>
+    <h3 class="card-val bold-700  m-0 mb-5 ">$ <?php echo $data_productos['valor_producto_oferta']; ?></h3>
+
+ <?php } else{?>
+    <h3 class="card-val bold-700  m-0 mt-4  mb-5">$ <?php echo $data_productos['valor_producto']; ?></h3>
+
+<?php } 
+
+ echo $data_productos['descripcion']; 
+
+}
+}
+
+?>
+
+
+
+    </div>
+
+
+
+
+</div>
+</div>
 
 
 
@@ -59,3 +93,5 @@ if ($resultado_img_productos->num_rows > 0) {
 <?php include("../mod/footer.php"); ?>
 </body>
 </html>
+
+
