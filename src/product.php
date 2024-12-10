@@ -10,15 +10,15 @@
 <?php $id = $_GET['id']; ?>
 
 
-<div class="container mt-5">
+<div class="container mt-5 bg-light-subtle rounded">
     <div class="row">
-    <div class="col-md-6 p-3">
+    <div class="col-md-6 p-4">
 
 
 
 
     <div id="carouselExampleFade" class="carousel carousel-dark slide carousel-fade shadow ">
-  <div class="carousel-inner z-n1">
+  <div class="carousel-inner">
 <?php 
 $consult_img_productos = "SELECT * FROM img_productos WHERE productos = '$id'";
 $resultado_img_productos = $conex->query($consult_img_productos);
@@ -50,32 +50,69 @@ if ($resultado_img_productos->num_rows > 0) {
 
 
 
-    <div class="col-md-6 p-3">
+    <div class="col-md-6 p-4 ">
     <?php 
 $consult_productos = "SELECT * FROM products WHERE id = '$id'";
 $resultado_productos = $conex->query($consult_productos);
 $first = true; 
 if ($resultado_productos->num_rows > 0) {
     while ($data_productos = $resultado_productos->fetch_assoc()) { 
+
+
+       $producto = $data_productos['producto'];
+       $valor_producto_oferta = $data_productos['valor_producto_oferta'];
+       $valor_producto = $data_productos['valor_producto'];
+       $valor_producto = $data_productos['valor_producto'];
+       $descripcion = $data_productos['descripcion'];
+       $descripcion_completa = $data_productos['descripcion_completa'];
+    }
+}
+
+
+
 ?>
- <h3 class="bold-600"><?php echo $data_productos['producto']; ?></h3>
+ <h3 class="bold-600"><?php echo $producto; ?></h3>
 
- <?php if(!empty($data_productos['valor_producto_oferta'])){?>
+ <?php if(!empty($valor_producto_oferta)){?>
 
-    <h4 class="card-val fst-italic text-decoration-line-through m-0 mt-4 text-danger">$ <?php echo $data_productos['valor_producto']; ?></h4>
-    <h3 class="card-val bold-700  m-0 mb-5 ">$ <?php echo $data_productos['valor_producto_oferta']; ?></h3>
+    <h4 class="card-val fst-italic text-decoration-line-through m-0 mt-4 text-danger">$ <?php echo $valor_producto; ?></h4>
+    <h3 class="card-val bold-700  m-0 mb-5 ">$ <?php echo $valor_producto_oferta; ?></h3>
 
  <?php } else{?>
-    <h3 class="card-val bold-700  m-0 mt-4  mb-5">$ <?php echo $data_productos['valor_producto']; ?></h3>
+    <h3 class="card-val bold-700  m-0 mt-4  mb-5">$ <?php echo $valor_producto; ?></h3>
 
 <?php } 
 
- echo $data_productos['descripcion']; 
+ echo $descripcion; ?>
 
-}
-}
+    <div class="row quantity  mr-3 mt-5">
+        
+    
+        <div class="col-auto">
+            <button class="btn <?php echo $TopbgClass; ?> <?php echo $ToptextClass; ?> btn-minus">
+            <i class="fa fa-minus"></i>
+            </button>
+        </div>
+        
+        <div class="col-2">
+        <input id="cant" type="text" class=" form-control  text-center" value="1">
+        </div>
 
-?>
+        <div class="col-auto">
+            <button class="btn <?php echo $TopbgClass; ?> <?php echo $ToptextClass; ?> btn-plus">
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+
+
+        <div class="col ">
+              <a class="btn <?php echo $TopbgClass; ?> <?php echo $ToptextClass; ?> w-100 "><i class="fa-solid fa-cart-shopping m-2 mt-0 mb-0"></i> Agregar carrito</a>
+        </div>
+
+
+    </div>
+
+  
 
 
 
@@ -85,12 +122,84 @@ if ($resultado_productos->num_rows > 0) {
 
 
 </div>
+
+</div>
+
+
+
+<div class="container p-0">
+<nav >
+  <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-descripcion_completa-tab" data-bs-toggle="tab" data-bs-target="#nav-descripcion_completa" type="button" role="tab" aria-controls="nav-descripcion_completa" aria-selected="true">Descripcion</button>
+    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Informacion</button>
+    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Reseñas</button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+
+
+  <div class="tab-pane fade show active p-4" id="nav-descripcion_completa" role="tabpanel" aria-labelledby="nav-descripcion_completa-tab" tabindex="0">
+        <?php echo $descripcion_completa; ?>
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+</div>
 </div>
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php include("../mod/footer.php"); ?>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionar todos los grupos de cantidad
+    const quantityGroups = document.querySelectorAll('.row.quantity');
+
+    quantityGroups.forEach(function(group) {
+        const btnMinus = group.querySelector('.btn-minus');
+        const btnPlus = group.querySelector('.btn-plus');
+        const inputField = group.querySelector('.form-control');
+
+        // Función para decrementar
+        btnMinus.addEventListener('click', function() {
+            let currentValue = parseInt(inputField.value);
+            if (currentValue > 1) {
+                inputField.value = currentValue - 1;
+            }
+        });
+
+        // Función para incrementar
+        btnPlus.addEventListener('click', function() {
+            let currentValue = parseInt(inputField.value);
+            inputField.value = currentValue + 1;
+        });
+
+        // Asegurar que el valor del input sea un número
+        inputField.addEventListener('input', function() {
+            if (isNaN(inputField.value) || inputField.value < 1) {
+                inputField.value = 1;
+            }
+        });
+    });
+});
+
+
+</script>
+
 </body>
 </html>
 

@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5 p-4">
   <footer class="py-5">
     <div class="row">
       <div class="col-6 col-md-2 mb-3">
