@@ -59,6 +59,7 @@ if ($resultado_productos->num_rows > 0) {
     while ($data_productos = $resultado_productos->fetch_assoc()) { 
 
 
+       $ref = $data_productos['ref'];
        $producto = $data_productos['producto'];
        $valor_producto_oferta = $data_productos['valor_producto_oferta'];
        $valor_producto = $data_productos['valor_producto'];
@@ -81,15 +82,15 @@ if ($resultado_productos->num_rows > 0) {
 
 
 ?>
- <h3 class="bold-600"><?php echo $producto; ?></h3>
-
+ <h3 id="producto" class="bold-600"><?php echo $producto; ?></h3>
+  <p id="ref">Ref: <?php echo $ref; ?></p>
  <?php if(!empty($valor_producto_oferta) && $oferta == '1' || !empty($valor_producto_oferta) && $oferta_dia == '1' ){?>
 
     <h4 class="card-val fst-italic text-decoration-line-through m-0 mt-4 text-danger">$ <?php echo $valor_producto; ?></h4>
-    <h3 class="card-val bold-700  m-0 mb-5 ">$ <?php echo $valor_producto_oferta; ?></h3>
+    <h3 id="valor_unit" class="card-val bold-700  m-0 mb-5 ">$ <?php echo $valor_producto_oferta; ?></h3>
 
  <?php } else{?>
-    <h3 class="card-val bold-700  m-0 mt-4  mb-5">$ <?php echo $valor_producto; ?></h3>
+    <h3 id="valor_unit" class="card-val bold-700  m-0 mt-4  mb-5">$ <?php echo $valor_producto; ?></h3>
 
 <?php } 
 
@@ -160,11 +161,23 @@ if ($resultado_productos->num_rows > 0) {
 
 
 
-
-
-
-
-
+<script>
+  const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "success",
+  title: "Signed in successfully"
+});
+</script>
 
 
 

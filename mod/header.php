@@ -1,8 +1,8 @@
 
 
-        <header class="pt-3 pb-3 <?= $bgClass ?> <?= $textClass ?> w-100">
+        <header class="pt-3 pb-3 <?= $bgClass . " " . $textClass ?> w-100">
             <div class="container">
-                <nav class="navbar navbar-expand-lg <?= $bgClass ?> <?= $textClass ?>">
+                <nav class="navbar navbar-expand-lg  <?= $bgClass . " " . $textClass ?>">
                     <div class="container-fluid  ">
                         <div class="row  w-100 "  style="margin-left: auto ; margin-right: auto;">
 
@@ -48,6 +48,10 @@
                                     <li class="nav-item">
                                         <a class="nav-link <?= $textClass ?>" href="">Ofertas & Promociones</a>
                                     </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link <?= $textClass ?>" href="">Contacto</a>
+                                    </li>
                                 </ul>
                                 <div class="row m-0 ">
                                     <a class="col btn <?= $btnClass ?> w-100 m-2 mt-2 mb-0">Login</a>
@@ -69,7 +73,20 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    ...
+<?php
+if (!empty($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $ref => $producto_data) {
+        echo "Referencia: $ref<br>";
+        echo "Producto: " . $producto_data['producto'] . "<br>";
+        echo "Precio unitario: " . $producto_data['valor_unit'] . "<br>";
+        echo "Cantidad: " . $producto_data['cant'] . "<br>";
+        echo "Total: " . $producto_data['total'] . "<br><br>";
+    }
+} else {
+    echo "El carrito está vacío.";
+}
+
+?>
   </div>
 </div>
 

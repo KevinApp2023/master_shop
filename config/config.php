@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = []; 
+}
+
 $consult = "SELECT * FROM config WHERE name IN ('color_nav', 'url', 'title', 'keywords', 'author', 'description', 'icon', 'logo_nav', 'lang', 'color_top', 'facebook', 'youtube', 'instagram', 'linkedin', 'x', 'github', 'telegram', 'whatsapp', 'gmail', 'skype','texto_top')";
 $resultado = $conex->query($consult);
 
