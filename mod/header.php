@@ -73,20 +73,25 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-<?php
-if (!empty($_SESSION['cart'])) {
-    foreach ($_SESSION['cart'] as $ref => $producto_data) {
-        echo "Referencia: $ref<br>";
-        echo "Producto: " . $producto_data['producto'] . "<br>";
-        echo "Precio unitario: " . $producto_data['valor_unit'] . "<br>";
-        echo "Cantidad: " . $producto_data['cant'] . "<br>";
-        echo "Total: " . $producto_data['total'] . "<br><br>";
-    }
-} else {
-    echo "El carrito está vacío.";
-}
+<div id="data_cart">
 
-?>
+</div>
+
+<script>
+    $(document).ready(function() {  
+            $.ajax({
+                url: '/cart',
+                method: 'GET',
+                success: function(response) {
+                    $('#data_cart').html(response);
+                },
+                error: function() {
+                    alert('Hubo un error al actualizar el carrito.');
+                }
+            });
+    });
+</script>
+
   </div>
 </div>
 

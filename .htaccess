@@ -5,5 +5,18 @@ RewriteRule ^$ /src/home.php [L,QSA]
 RewriteRule ^ofertas$ /src/ofertas.php [L,QSA]
 
 
-#Product
-RewriteRule ^product/Soporte_tipo_tripié_para_proyector,_equipo_de_audio_o_portátil$ /src/product.php?id=1 [L,QSA]
+
+# Products
+RewriteRule ^product/Lámpara_LED_regulable_para_oficina_y_estudio$ /src/product.php?id=1 [L,QSA]
+RewriteRule ^product/Silla_ergonómica_de_oficina_con_ajuste_lumbar$ /src/product.php?id=6 [L,QSA]
+RewriteRule ^product/Monitor_LED_Full_HD_de_24_pulgadas$ /src/product.php?id=7 [L,QSA]
+RewriteRule ^product/Teclado_mecánico_retroiluminado$ /src/product.php?id=8 [L,QSA]
+RewriteRule ^product/Mochila_para_laptop_de_15_6_pulgadas$ /src/product.php?id=9 [L,QSA]
+RewriteRule ^product/Auriculares_inalámbricos_Bluetooth$ /src/product.php?id=10 [L,QSA]
+RewriteRule ^product/Cargador_portátil_10000_mAh$ /src/product.php?id=11 [L,QSA]
+RewriteRule ^product/Cámara_de_seguridad_Wi_Fi_para_interiores$ /src/product.php?id=12 [L,QSA]
+
+
+#Cart
+RewriteRule ^add/cart$ /config/agregar_cart.php [L,QSA]
+RewriteRule ^cart$ /config/cart.php [L,QSA]

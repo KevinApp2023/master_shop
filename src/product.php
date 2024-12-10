@@ -85,11 +85,13 @@ if ($resultado_productos->num_rows > 0) {
  <h3 id="producto" class="bold-600"><?php echo $producto; ?></h3>
   <p id="ref">Ref: <?php echo $ref; ?></p>
  <?php if(!empty($valor_producto_oferta) && $oferta == '1' || !empty($valor_producto_oferta) && $oferta_dia == '1' ){?>
-
+<?php $valor = $valor_producto_oferta; ?>
     <h4 class="card-val fst-italic text-decoration-line-through m-0 mt-4 text-danger">$ <?php echo $valor_producto; ?></h4>
     <h3 id="valor_unit" class="card-val bold-700  m-0 mb-5 ">$ <?php echo $valor_producto_oferta; ?></h3>
 
  <?php } else{?>
+<?php $valor = $valor_producto; ?>
+
     <h3 id="valor_unit" class="card-val bold-700  m-0 mt-4  mb-5">$ <?php echo $valor_producto; ?></h3>
 
 <?php } 
@@ -117,7 +119,7 @@ if ($resultado_productos->num_rows > 0) {
 
 
         <div class="col ">
-              <a class="btn <?php echo $TopbgClass . " " . $ToptextClass . " " .  $estado; ?> w-100 "><i class="fa-solid fa-cart-shopping m-2 mt-0 mb-0"></i> Agregar carrito</a>
+              <a id="addToCartButton" class="btn <?php echo $TopbgClass . " " . $ToptextClass . " " .  $estado; ?> w-100 "><i class="fa-solid fa-cart-shopping m-2 mt-0 mb-0"></i> Agregar carrito</a>
      
             </div>
          
@@ -162,20 +164,69 @@ if ($resultado_productos->num_rows > 0) {
 
 
 <script>
-  const Toast = Swal.mixin({
-  toast: true,
-  position: "top-end",
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.onmouseenter = Swal.stopTimer;
-    toast.onmouseleave = Swal.resumeTimer;
-  }
-});
-Toast.fire({
-  icon: "success",
-  title: "Signed in successfully"
+
+function actualizarCarrito() {
+            $.ajax({
+                url: '/cart', // El archivo PHP que muestra el carrito
+                method: 'GET',
+                success: function(response) {
+                    $('#data_cart').html(response);
+                },
+                error: function() {
+                    alert('Hubo un error al actualizar el carrito.');
+                }
+            });
+        }
+
+
+
+$(document).ready(function() {
+  $('#addToCartButton').click(function(e) {
+    e.preventDefault(); 
+
+    var ref = '<?php echo $ref; ?>';
+    var producto = '<?php echo $producto; ?>';
+    var valor_unit = '<?php echo $valor; ?>';
+    var cant = $('#cant').val();
+
+    var datos = {
+      ref: ref,
+      producto: producto,
+      valor_unit: valor_unit,
+      cant: cant
+    };
+
+    $.ajax({
+      url: '/add/cart',  
+      method: 'POST',    
+      data: datos,     
+      success: function(response) {
+
+        actualizarCarrito();
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Producto añadido al carrito con éxito"
+        });
+      },
+      error: function(xhr, status, error) {
+        alert("Error: " + error);
+      }
+    });
+  });
+  actualizarCarrito();
 });
 </script>
 
@@ -191,7 +242,6 @@ Toast.fire({
 <?php include("../mod/footer.php"); ?>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Seleccionar todos los grupos de cantidad
     const quantityGroups = document.querySelectorAll('.row.quantity');
 
     quantityGroups.forEach(function(group) {
@@ -199,7 +249,6 @@ Toast.fire({
         const btnPlus = group.querySelector('.btn-plus');
         const inputField = group.querySelector('.form-control');
 
-        // Función para decrementar
         btnMinus.addEventListener('click', function() {
             let currentValue = parseInt(inputField.value);
             if (currentValue > 1) {
@@ -207,13 +256,11 @@ Toast.fire({
             }
         });
 
-        // Función para incrementar
         btnPlus.addEventListener('click', function() {
             let currentValue = parseInt(inputField.value);
             inputField.value = currentValue + 1;
         });
 
-        // Asegurar que el valor del input sea un número
         inputField.addEventListener('input', function() {
             if (isNaN(inputField.value) || inputField.value < 1) {
                 inputField.value = 1;
