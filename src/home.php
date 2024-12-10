@@ -36,8 +36,19 @@ if ($resultado_contenido_pagina->num_rows > 0) {
 
 <?php
   }
-} else {
 }
+
+
+if(isset($_GET['_'])){
+    echo $_GET['_'];
+}
+
+
+
+
+
+
+
 ?>
 <?php include("../mod/footer.php"); ?>
 </body>

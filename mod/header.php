@@ -13,9 +13,9 @@
                             
 
 
-                            <form  role="search" method="get"  class=" p-0 col order-2 d-flex align-items-stretch w-100 ">
-                                <input type="search" class="form-control " placeholder="Buscar..." aria-label="Search" name="_" style="min-width:100px;">
-                            </form>
+                            <div   class=" p-0 col order-2 d-flex align-items-stretch w-100 ">
+                                <input id="buscar_producto" type="search" class="form-control " placeholder="Buscar..." aria-label="Search" name="_" style="min-width:100px;">
+                            </div>
                             
                                <div class="col-auto order-3 d-flex align-items-stretch  m-0 ">
                                 <button type="button" class="btn btn-light " data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa-solid fa-cart-shopping"></i></button>
@@ -84,7 +84,18 @@
 
 
 
-
+<script>
+        document.getElementById('buscar_producto').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                let query = event.target.value;
+                query = query.replace(/\s+/g, '+') 
+                        .replace(/[.,]/g, '');
+                const url = `/${query}`;
+                window.location.href = url;
+                $('#buscar_producto').val() = '';
+            }
+        });
+    </script>
 
 
 
@@ -92,8 +103,12 @@
 
 <script>
     $(document).ready(function() {  
+        actualizarCarrito();
+    });
+
+   function actualizarCarrito() {  
             $.ajax({
-                url: '/cart',
+                url: '/cart/products', 
                 method: 'GET',
                 success: function(response) {
                     $('#data_cart').html(response);
@@ -102,7 +117,7 @@
                     alert('Hubo un error al actualizar el carrito.');
                 }
             });
-    });
+    };
 </script> 
   </div>
 </div>

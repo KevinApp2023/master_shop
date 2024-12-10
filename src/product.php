@@ -166,22 +166,6 @@ if ($resultado_productos->num_rows > 0) {
 
 
 <script>
-
-function actualizarCarrito() {
-            $.ajax({
-                url: '/cart', 
-                method: 'GET',
-                success: function(response) {
-                    $('#data_cart').html(response);
-                },
-                error: function() {
-                    alert('Hubo un error al actualizar el carrito.');
-                }
-            });
-        }
-
-
-
 $(document).ready(function() {
   $('#addToCartButton').click(function(e) {
     e.preventDefault(); 
@@ -203,7 +187,7 @@ $(document).ready(function() {
     };
 
     $.ajax({
-      url: '/add/cart',  
+      url: '/cart/add',  
       method: 'POST',    
       data: datos,     
       success: function(response) {

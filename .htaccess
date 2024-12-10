@@ -1,7 +1,10 @@
 
 RewriteEngine On
-
 RewriteRule ^$ /src/home.php [L,QSA]
+
+RewriteRule ^([^/]+)$ /src/home.php?_=$1 [L,QSA]
+
+
 RewriteRule ^ofertas$ /src/ofertas.php [L,QSA]
 
 
@@ -18,6 +21,6 @@ RewriteRule ^product/Cámara_de_seguridad_Wi_Fi_para_interiores$ /src/product.ph
 
 
 #Cart
-RewriteRule ^add/cart$ /config/agregar_cart.php [L,QSA]
-RewriteRule ^cart$ /config/cart.php [L,QSA]
-RewriteRule ^eliminar_data_cart$ /config/eliminar_data_cart.php [L,QSA]
+RewriteRule ^cart/add$ /config/agregar_cart.php [L,QSA]
+RewriteRule ^cart/products$ /config/cart.php [L,QSA]
+RewriteRule ^cart/eliminar_data_cart$ /config/eliminar_data_cart.php [L,QSA]
