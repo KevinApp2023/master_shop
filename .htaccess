@@ -3,3 +3,7 @@ RewriteEngine On
 
 RewriteRule ^$ /src/home.php [L,QSA]
 RewriteRule ^ofertas$ /src/ofertas.php [L,QSA]
+
+
+#Product
+RewriteRule ^product/Soporte_tipo_tripié_para_proyector,_equipo_de_audio_o_portátil$ /src/product.php [L,QSA]
