@@ -169,7 +169,7 @@ if ($resultado_productos->num_rows > 0) {
 
 function actualizarCarrito() {
             $.ajax({
-                url: '/cart', // El archivo PHP que muestra el carrito
+                url: '/cart', 
                 method: 'GET',
                 success: function(response) {
                     $('#data_cart').html(response);
