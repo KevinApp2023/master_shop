@@ -19,7 +19,7 @@
 
   <?php 
 
-$consult_oferta_dia = "SELECT * FROM (SELECT * FROM products WHERE oferta = '1' AND oferta_dia = '1'  AND estado = '1' ORDER BY id DESC LIMIT 4) subquery ORDER BY id DESC";
+$consult_oferta_dia = "SELECT * FROM (SELECT * FROM products WHERE oferta_dia = '1'  AND estado = '1' ORDER BY id DESC LIMIT 4) subquery ORDER BY id DESC";
 $resultado_oferta_dia = $conex->query($consult_oferta_dia);
 if ($resultado_oferta_dia->num_rows > 0) {
     while ($data_oferta_dia = $resultado_oferta_dia->fetch_assoc()) { 

@@ -65,6 +65,16 @@ if ($resultado_productos->num_rows > 0) {
        $valor_producto = $data_productos['valor_producto'];
        $descripcion = $data_productos['descripcion'];
        $descripcion_completa = $data_productos['descripcion_completa'];
+       $oferta = $data_productos['oferta'];
+       $oferta_dia = $data_productos['oferta_dia'];
+       if ($data_productos['estado'] == 0){
+        $estado = 'disabled';
+        $data_estado = '<h4 class="card-val fst-italic m-0 mt-4 text-danger text-center">Producto desactivado</h4>';
+       }else{
+        $data_estado = 'active';
+        $data_estado = '';
+
+       }
     }
 }
 
@@ -73,7 +83,7 @@ if ($resultado_productos->num_rows > 0) {
 ?>
  <h3 class="bold-600"><?php echo $producto; ?></h3>
 
- <?php if(!empty($valor_producto_oferta)){?>
+ <?php if(!empty($valor_producto_oferta) && $oferta == '1' || !empty($valor_producto_oferta) && $oferta_dia == '1' ){?>
 
     <h4 class="card-val fst-italic text-decoration-line-through m-0 mt-4 text-danger">$ <?php echo $valor_producto; ?></h4>
     <h3 class="card-val bold-700  m-0 mb-5 ">$ <?php echo $valor_producto_oferta; ?></h3>
@@ -89,26 +99,28 @@ if ($resultado_productos->num_rows > 0) {
         
     
         <div class="col-auto">
-            <button class="btn <?php echo $TopbgClass; ?> <?php echo $ToptextClass; ?> btn-minus">
+            <button class="btn <?php echo $TopbgClass . " " . $ToptextClass . " " .  $estado; ?> btn-minus">
             <i class="fa fa-minus"></i>
             </button>
         </div>
         
         <div class="col-2">
-        <input id="cant" type="text" class=" form-control  text-center" value="1">
+        <input id="cant" type="text" class=" form-control  text-center " value="1">
         </div>
 
         <div class="col-auto">
-            <button class="btn <?php echo $TopbgClass; ?> <?php echo $ToptextClass; ?> btn-plus">
+            <button class="btn <?php echo $TopbgClass . " " . $ToptextClass . " " .  $estado; ?> btn-plus">
                 <i class="fa fa-plus"></i>
             </button>
         </div>
 
 
         <div class="col ">
-              <a class="btn <?php echo $TopbgClass; ?> <?php echo $ToptextClass; ?> w-100 "><i class="fa-solid fa-cart-shopping m-2 mt-0 mb-0"></i> Agregar carrito</a>
-        </div>
-
+              <a class="btn <?php echo $TopbgClass . " " . $ToptextClass . " " .  $estado; ?> w-100 "><i class="fa-solid fa-cart-shopping m-2 mt-0 mb-0"></i> Agregar carrito</a>
+     
+            </div>
+         
+            <?php echo $data_estado; ?>
 
     </div>
 
