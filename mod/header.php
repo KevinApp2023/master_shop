@@ -77,6 +77,19 @@
 
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
     $(document).ready(function() {  
             $.ajax({
@@ -90,8 +103,7 @@
                 }
             });
     });
-</script>
-
+</script> 
   </div>
 </div>
 

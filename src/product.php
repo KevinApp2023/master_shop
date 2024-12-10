@@ -60,6 +60,8 @@ if ($resultado_productos->num_rows > 0) {
 
 
        $ref = $data_productos['ref'];
+       $img_producto = $data_productos['img_producto'];
+       $url_producto = preg_replace('/[ ,.]/', '_', $data_productos['producto']);
        $producto = $data_productos['producto'];
        $valor_producto_oferta = $data_productos['valor_producto_oferta'];
        $valor_producto = $data_productos['valor_producto'];
@@ -185,12 +187,16 @@ $(document).ready(function() {
     e.preventDefault(); 
 
     var ref = '<?php echo $ref; ?>';
+    var img_producto = '<?php echo $img_producto; ?>';
+    var url_producto = '<?php echo $url_producto; ?>';
     var producto = '<?php echo $producto; ?>';
     var valor_unit = '<?php echo $valor; ?>';
     var cant = $('#cant').val();
 
     var datos = {
       ref: ref,
+      img_producto: img_producto,
+      url_producto: url_producto,
       producto: producto,
       valor_unit: valor_unit,
       cant: cant
