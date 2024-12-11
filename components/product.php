@@ -2,9 +2,13 @@
 <?php include("../config/conex.php");
 
 $category = $_GET['category'];
-$consulta = $_GET['_'];
 
 
+if ($_GET['_'] == 'all'){
+  $consulta = '';
+}else{
+  $consulta = $_GET['_'];
+}
 
 $where = "WHERE 1=1";
 
@@ -22,7 +26,7 @@ if (!empty($category)) {
 $where .= " ORDER BY id DESC";
 
 ?>
-      <div class=" row w-100  ">
+      <div class=" row w-100 p-0 m-0 ">
   <?php 
 
 $consult_data_c = "SELECT * FROM products $where ";
@@ -31,8 +35,8 @@ if ($resultado_data_c->num_rows > 0) {
     while ($data_c = $resultado_data_c->fetch_assoc()) { 
 ?>
 
-<div class="col-6 col-md-4 card-oferta ">
-        <div class="  p-4 shadow">
+<div class="col-6 col-md-4 card-oferta d-flex mb-4  ">
+        <div class=" p-4 shadow">
         <img src="<?php echo $data_c['img_producto']; ?>" class="card-img-top">
         
         <a href="/product/<?php echo $data_c['id']; ?>/<?php echo preg_replace('/[ ,.]/', '_', $data_c['producto']); ?>">
@@ -41,8 +45,35 @@ if ($resultado_data_c->num_rows > 0) {
           </p>
         </a>
 
-          <p class="card-val fst-italic text-decoration-line-through m-0 text-danger">$ <?php echo $data_c['valor_producto']; ?></p>
-          <h3 class="card-val-new  m-0">$ <?php echo $data_c['valor_producto_oferta']; ?></h3>
+
+
+
+
+    
+        
+        
+          <?php if(!empty($data_c['valor_producto_oferta']) && $data_c['oferta'] == '1' || !empty($data_c['valor_producto_oferta']) && $data_c['oferta_dia'] == '1' ){?>
+   
+<p class="card-val fst-italic text-decoration-line-through m-0 text-danger">$ <?php echo $data_c['valor_producto']; ?></p>
+<h3 class="card-val-new  m-0">$ <?php echo $data_c['valor_producto_oferta']; ?></h3>
+
+ <?php } else{?>
+
+
+  <h3 class="card-val-new  m-0 mt-4 ">$ <?php echo $data_c['valor_producto']; ?></h3>
+
+
+<?php }  ?>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         </div>
       </div>
 

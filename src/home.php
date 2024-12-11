@@ -44,17 +44,17 @@ if ($resultado_contenido_pagina->num_rows > 0) {
 }else{ ?>
 
 <div class="container mt-5  ">
-<div class="row">
-    <div class="col-md-3">
+<div class="row p-0 m-0">
+    <div class="col-md-3 p-4 ">
     <ul class="list-group">
-  <li id="all" class="list-group-item <?php if(empty($_GET['category'])){echo "active"; } ?>">Todas las categorias</li>
+  <li id="all"  class="list-group-item <?php if(empty($_GET['category'])){echo "active ";   echo $TopbgClass . " " . $ToptextClass; } ?> "><a class="<?php if(empty($_GET['category'])){   echo $ToptextClass; }else{ echo 'text-black';} ?>" href="/all">Todas las categorias</a></li>
  
 
   <?php echo $category_banner; ?>
 
 </ul>
     </div>
-    <div class="col-md">
+    <div class="col-md p-4">
         <div id="c_data_products"></div>
     </div>
 </div>
@@ -63,7 +63,7 @@ if ($resultado_contenido_pagina->num_rows > 0) {
 
 
 <script>
-document.querySelector('#all').addEventListener('click', function() {
+document.querySelector('#alll').addEventListener('click', function() {
     var currentPath = window.location.pathname;
     var newPath = currentPath.replace(/^\/[^/]+\/[^/]+\//, '/');
     window.location.href = newPath;

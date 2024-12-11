@@ -179,7 +179,7 @@ if ($resultado_category_banner->num_rows > 0) {
         $active_categoria = ($url_categoria == $_GET['category']) ? trim($TopbgClass . ' ' . $ToptextClass) : '';
         $active_a_categoria = ($url_categoria == $_GET['category']) ? trim($ToptextClass) : 'text-black';
         if(empty($_GET['_'])){ $consulta_data_categoria = 'all'; }else{ $consulta_data_categoria = preg_replace('/[ ,.]/', '+', $_GET['_']); }
-        $category_banner .= '<li class="list-group-item ' . $active_categoria . ' " ><a class=" ' . $active_a_categoria . ' " href="/category/' . $url_categoria . '/' . $consulta_data_categoria . '">' . $data_category_banner['name'] . '</a></li>' . "\n";
+        $category_banner .= '<li class="list-group-item ' . $active_categoria . ' " ><a class=" ' . $active_a_categoria . ' " href="/category/' . $url_categoria . '/all">' . $data_category_banner['name'] . '</a></li>' . "\n";
     }
 }
 

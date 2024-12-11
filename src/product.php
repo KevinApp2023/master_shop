@@ -60,6 +60,7 @@ if ($resultado_productos->num_rows > 0) {
 
        $d_producto = $data_productos['id'];
        $ref_producto = $data_productos['ref'];
+       $category_producto = $data_productos['category'];
        $img_producto = $data_productos['img_producto'];
        $url_producto = preg_replace('/[ ,.]/', '_', $data_productos['producto']);
        $producto = $data_productos['producto'];
@@ -85,7 +86,8 @@ if ($resultado_productos->num_rows > 0) {
 
 ?>
  <h3 id="producto" class="bold-600"><?php echo $producto; ?></h3>
-  <p id="ref">Ref: <?php echo $ref_producto; ?></p>
+  <p id="ref">Categorias: <?php echo $category_producto; ?></p>
+  <p id="ref" class="bold-500">Ref: <?php echo $ref_producto; ?></p>
  <?php if(!empty($valor_producto_oferta) && $oferta == '1' || !empty($valor_producto_oferta) && $oferta_dia == '1' ){?>
 <?php $valor = $valor_producto_oferta; ?>
     <h4 class="card-val fst-italic text-decoration-line-through m-0 mt-4 text-danger">$ <?php echo $valor_producto; ?></h4>

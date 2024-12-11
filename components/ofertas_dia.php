@@ -25,7 +25,7 @@ if ($resultado_oferta_dia->num_rows > 0) {
     while ($data_oferta_dia = $resultado_oferta_dia->fetch_assoc()) { 
 ?>
 
-<div class="col-6 col-md-3 card-oferta">
+<div class="col-6 col-md-3 card-oferta d-flex ">
         <div class="card  p-3">
         <img src="<?php echo $data_oferta_dia['img_producto']; ?>" class="card-img-top">
         
