@@ -187,7 +187,7 @@ $(document).ready(function() {
     };
 
     $.ajax({
-      url: '/cart/add',  
+      url: '/c/cart/add',  
       method: 'POST',    
       data: datos,     
       success: function(response) {

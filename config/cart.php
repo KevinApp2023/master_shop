@@ -39,7 +39,7 @@ if (!empty($_SESSION['cart'])) {
 <script>
     function eliminar_data_cart(ref_p) {
             $.ajax({
-                url: '/cart/eliminar_data_cart?ref_p=' + ref_p, 
+                url: '/c/cart/eliminar_data_cart?ref_p=' + ref_p, 
                 method: 'GET',
                 success: function(response) {
                     actualizarCarrito();

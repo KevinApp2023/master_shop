@@ -83,21 +83,37 @@
 
 
 
-
+<?php
+if(empty($_GET['category'])){ ?>
 <script>
         document.getElementById('buscar_producto').addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
                 let query = event.target.value;
                 query = query.replace(/\s+/g, '+') 
                         .replace(/[.,]/g, '');
-                const url = `/p/category/${query}`;
+                const url = `/${query}`;
                 window.location.href = url;
                 $('#buscar_producto').val() = '';
             }
         });
-    </script>
+</script>
+<?php }else { ?>
+
+    <script>
+        document.getElementById('buscar_producto').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                let query = event.target.value;
+                query = query.replace(/\s+/g, '+') 
+                        .replace(/[.,]/g, '');
+                const url = `/<?php echo $_GET['category'];?>/${query}`;
+                window.location.href = url;
+                $('#buscar_producto').val() = '';
+            }
+        });
+</script>
 
 
+<?php } ?>
 
 
 
@@ -108,7 +124,7 @@
 
    function actualizarCarrito() {  
             $.ajax({
-                url: '/cart/products', 
+                url: '/c/cart/products', 
                 method: 'GET',
                 success: function(response) {
                     $('#data_cart').html(response);
