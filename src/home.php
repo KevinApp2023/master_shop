@@ -54,7 +54,9 @@ if ($resultado_contenido_pagina->num_rows > 0) {
 
 </ul>
     </div>
-    <div class="col-md bg-danger"><br><br><br><br><br></div>
+    <div class="col-md">
+        <div id="c_data_products"></div>
+    </div>
 </div>
 </div>
 
@@ -73,11 +75,24 @@ document.querySelector('#all').addEventListener('click', function() {
 
 
 
+<script>
+    $(document).ready(function() {  
+        c_data_products();
+    });
 
-
-
-
-
+   function c_data_products() {  
+            $.ajax({
+                url: '/c/data/products?category=<?php echo $_GET['category'];?>&_=<?php echo $_GET['_'];  ?>', 
+                method: 'GET',
+                success: function(response) {
+                    $('#c_data_products').html(response);
+                },
+                error: function() {
+                    alert('Hubo un error al actualizar el carrito.');
+                }
+            });
+    };
+</script> 
 
 
 

@@ -6,7 +6,7 @@
     
 
   
-  <div class="w-100 row p rounded shadow p-4  m-0">
+  <div class="w-100 row  rounded shadow p-4  m-0">
       <div class="col">
         <h5>Ofertas del día </h5>
       </div>

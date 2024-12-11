@@ -10,4 +10,5 @@ RewriteRule ^product/([^/]+)/([^/]+)$ /src/product.php?id=$1&_=$2 [L,QSA]
 #Cart
 RewriteRule ^c/cart/add$ /config/agregar_cart.php [L,QSA]
 RewriteRule ^c/cart/products$ /config/cart.php [L,QSA]
+RewriteRule ^c/data/products$ /components/product.php [L,QSA]
 RewriteRule ^c/cart/eliminar_data_cart$ /config/eliminar_data_cart.php [L,QSA]
