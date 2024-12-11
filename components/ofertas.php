@@ -29,7 +29,8 @@ if ($resultado_oferta->num_rows > 0) {
         <div class="card  p-3">
         <img src="<?php echo $data_oferta['img_producto']; ?>" class="card-img-top">
           
-        <a href="/product/<?php echo preg_replace('/[ ,.]/', '_', $data_oferta['producto']); ?>">
+        <a href="/product/<?php echo $data_oferta['id']; ?>/<?php echo preg_replace('/[ ,.]/', '_', $data_oferta['producto']); ?>">
+          
           <p class="card-title">
             <?php echo strlen($data_oferta['producto']) > 55 ? substr($data_oferta['producto'], 0, 55) . ' . . .' : $data_oferta['producto'];?>
           </p>
