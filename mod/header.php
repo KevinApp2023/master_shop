@@ -105,7 +105,7 @@ if(empty($_GET['category'])){ ?>
                 let query = event.target.value;
                 query = query.replace(/\s+/g, '+') 
                         .replace(/[.,]/g, '');
-                const url = `/<?php echo $_GET['category'];?>/${query}`;
+                const url = `/category/<?php echo $_GET['category'];?>/${query}`;
                 window.location.href = url;
                 $('#buscar_producto').val() = '';
             }

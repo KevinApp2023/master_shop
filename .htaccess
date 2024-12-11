@@ -5,6 +5,7 @@ RewriteRule ^$ /src/home.php [L,QSA]
 
 
 RewriteRule ^([^/]+)$ /src/home.php?category=&_=$1 [L,QSA]
+RewriteRule ^category/([^/]+)/([^/]+)$ /src/home.php?category=$1&_=$2 [L,QSA]
 
 
 
