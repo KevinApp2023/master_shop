@@ -12,7 +12,7 @@ if (!empty($_SESSION['cart'])) {
     <div class="col p-0 m-0">
         <div class="row">
         <div class="col"><p class="p-0 m-0"><?php echo $producto_data['producto_p']; ?></p></div>
-    <div class="col-auto   "><a id="eliminar_data_cart" href="/product/<?php echo $producto_data['url_p']; ?>" class=" btn <?php echo $TopbgClass . " " . $ToptextClass . " " .  $estado; ?>"><i class="bi bi-pencil-square"></i></a></div>
+    <div class="col-auto   "><a id="eliminar_data_cart" href="/product/<?php echo $producto_data['d_p']; ?>/<?php echo $producto_data['url_p']; ?>" class=" btn <?php echo $TopbgClass . " " . $ToptextClass . " " .  $estado; ?>"><i class="bi bi-pencil-square"></i></a></div>
     <div class="col-auto   "><a id="eliminar_data_cart" onclick="eliminar_data_cart('<?php echo $ref_p; ?>')"class=" btn <?php echo $TopbgClass . " " . $ToptextClass . " " .  $estado; ?>"><i class="bi bi-trash"></i></a></div>
     <p class="fst-italic text-danger mt-0 pt-0">Unit $ <?php echo $producto_data['valor_unit_p']; ?>. X<?php echo $producto_data['cant_p']; ?>. Subtotal $ <?php echo $producto_data['total_p']; ?>. </p>
         </div>

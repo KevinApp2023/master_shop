@@ -58,8 +58,8 @@ $first = true;
 if ($resultado_productos->num_rows > 0) {
     while ($data_productos = $resultado_productos->fetch_assoc()) { 
 
-
-       $ref = $data_productos['ref'];
+       $d_producto = $data_productos['id'];
+       $ref_producto = $data_productos['ref'];
        $img_producto = $data_productos['img_producto'];
        $url_producto = preg_replace('/[ ,.]/', '_', $data_productos['producto']);
        $producto = $data_productos['producto'];
@@ -85,7 +85,7 @@ if ($resultado_productos->num_rows > 0) {
 
 ?>
  <h3 id="producto" class="bold-600"><?php echo $producto; ?></h3>
-  <p id="ref">Ref: <?php echo $ref; ?></p>
+  <p id="ref">Ref: <?php echo $ref_producto; ?></p>
  <?php if(!empty($valor_producto_oferta) && $oferta == '1' || !empty($valor_producto_oferta) && $oferta_dia == '1' ){?>
 <?php $valor = $valor_producto_oferta; ?>
     <h4 class="card-val fst-italic text-decoration-line-through m-0 mt-4 text-danger">$ <?php echo $valor_producto; ?></h4>
@@ -170,7 +170,8 @@ $(document).ready(function() {
   $('#addToCartButton').click(function(e) {
     e.preventDefault(); 
 
-    var ref = '<?php echo $ref; ?>';
+    var d_producto= '<?php echo $d_producto; ?>';
+    var ref_producto = '<?php echo $ref_producto; ?>';
     var img_producto = '<?php echo $img_producto; ?>';
     var url_producto = '<?php echo $url_producto; ?>';
     var producto = '<?php echo $producto; ?>';
@@ -178,7 +179,8 @@ $(document).ready(function() {
     var cant = $('#cant').val();
 
     var datos = {
-      ref: ref,
+      d_producto: d_producto,
+      ref_producto: ref_producto,
       img_producto: img_producto,
       url_producto: url_producto,
       producto: producto,
