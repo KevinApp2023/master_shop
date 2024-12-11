@@ -2,18 +2,10 @@
 RewriteEngine On
 RewriteRule ^$ /src/home.php [L,QSA]
 
-
-
+# Products
 RewriteRule ^([^/]+)$ /src/home.php?category=&_=$1 [L,QSA]
 RewriteRule ^category/([^/]+)/([^/]+)$ /src/home.php?category=$1&_=$2 [L,QSA]
-
-
-
-
-# Products
 RewriteRule ^product/([^/]+)/([^/]+)$ /src/product.php?id=$1&_=$2 [L,QSA]
-
-
 
 #Cart
 RewriteRule ^c/cart/add$ /config/agregar_cart.php [L,QSA]

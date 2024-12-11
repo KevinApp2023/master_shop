@@ -117,19 +117,6 @@ if (!empty($navClass)) {
 
 
 
-$category = "";
-
-$consult_category = "SELECT * FROM category";
-$resultado_category = $conex->query($consult_category);
-
-if ($resultado_category->num_rows > 0) {
-    while ($data_category = $resultado_category->fetch_assoc()) {
-        $category .= '<li><a class="dropdown-item" href="/category/' . preg_replace('/[ ,.]/', '_', $data_category['name']) . '/all">' . $data_category['name'] . '</a></li>' . "\n";
-    }
-}
-
-
-
 
 if (!empty($color_top)) {
     $color_topClasses = [
@@ -162,4 +149,38 @@ if (!empty($color_top)) {
         $ToptextClass = $color_topClasses[$color_top][1];
         $TopbtnClass = $color_topClasses[$color_top][2];
     }
+}
+
+
+
+$category = "";
+
+$consult_category = "SELECT * FROM category";
+$resultado_category = $conex->query($consult_category);
+
+if ($resultado_category->num_rows > 0) {
+    while ($data_category = $resultado_category->fetch_assoc()) {
+        $category .= '<li><a class="dropdown-item" href="/category/' . preg_replace('/[ ,.]/', '_', $data_category['name']) . '/all">' . $data_category['name'] . '</a></li>' . "\n";
+    }
+}
+
+
+
+if(isset($_GET['category'])){
+
+$category_banner = "";
+
+$consult_category_banner = "SELECT * FROM category";
+$resultado_category_banner = $conex->query($consult_category_banner);
+
+if ($resultado_category_banner->num_rows > 0) {
+    while ($data_category_banner = $resultado_category_banner->fetch_assoc()) {
+        $url_categoria = preg_replace('/[ ,.]/', '_', $data_category_banner['name']);
+        $active_categoria = ($url_categoria == $_GET['category']) ? trim($TopbgClass . ' ' . $ToptextClass) : '';
+        $active_a_categoria = ($url_categoria == $_GET['category']) ? trim($ToptextClass) : 'text-black';
+
+        $category_banner .= '<li class="list-group-item ' . $active_categoria . ' " ><a class=" ' . $active_a_categoria . ' " href="/category/' . $url_categoria . '/all">' . $data_category_banner['name'] . '</a></li>' . "\n";
+    }
+}
+
 }

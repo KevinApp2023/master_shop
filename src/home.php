@@ -41,28 +41,17 @@ if ($resultado_contenido_pagina->num_rows > 0) {
   }
 }
 
-}else{
-    
-    
-    
-    
-    
-    
-    
-    
-    echo $_GET['_'];  
-    ?> <br> <?php
-    echo $_GET['category']; ?>
+}else{ ?>
 
 <div class="container mt-5  ">
 <div class="row">
     <div class="col-md-3">
     <ul class="list-group">
-  <li class="list-group-item active" aria-current="true">Categorias</li>
-  <li class="list-group-item">A second item</li>
-  <li class="list-group-item">A third item</li>
-  <li class="list-group-item">A fourth item</li>
-  <li class="list-group-item">And a fifth one</li>
+  <li id="all" class="list-group-item <?php if(empty($_GET['category'])){echo "active"; } ?>">Todas las categorias</li>
+ 
+
+  <?php echo $category_banner; ?>
+
 </ul>
     </div>
     <div class="col-md bg-danger"><br><br><br><br><br></div>
@@ -71,7 +60,16 @@ if ($resultado_contenido_pagina->num_rows > 0) {
 
 
 
+<script>
+document.querySelector('#all').addEventListener('click', function() {
+    var currentPath = window.location.pathname;
+    var newPath = currentPath.replace(/^\/[^/]+\/[^/]+\//, '/');
+    window.location.href = newPath;
 
+});
+
+
+</script>
 
 
 
