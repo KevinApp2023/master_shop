@@ -43,9 +43,9 @@ if ($resultado_contenido_pagina->num_rows > 0) {
 
 }else{ ?>
 
-<div class="container mt-5  ">
+<div class="container   ">
 <div class="row p-0 m-0">
-    <div class="col-md-3 p-3">
+    <div class="col-md-3 p-3 d-none d-lg-block">
     <ul class="list-group">
   <li id="all"  class="list-group-item <?php if(empty($_GET['category'])){ echo $TopbgClass . " " . $ToptextClass; } ?> "><a class=" <?php if(empty($_GET['category'])){   echo $ToptextClass; }else{ echo 'text-black';} ?>" href="/all">Todas las categorias</a></li>
  
