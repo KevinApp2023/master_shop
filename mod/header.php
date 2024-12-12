@@ -41,7 +41,7 @@
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle <?= $textClass ?>" href="" data-bs-toggle="dropdown" aria-expanded="false">Categorías</a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item btn  <?php if(empty($_GET['category'])){ echo $TopbgClass . " " . $ToptextClass; } ?>" href="/all">Todas las categorias</a></li>
+                                            <li><a class="dropdown-item btn  <?php if(isset($_GET['category'])){ echo $TopbgClass . " " . $ToptextClass; } ?>" href="/all">Todas las categorias</a></li>
                                            <?php echo $category; ?>
                                         </ul>
                                     </li>
