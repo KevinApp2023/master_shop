@@ -6,7 +6,7 @@
     
 
   
-  <div class="w-100 row  rounded shadow p-4  m-0">
+  <div class="w-100 row  rounded shadow  p-4 m-0">
       <div class="col">
         <h5>Ofertas del día </h5>
       </div>
@@ -14,7 +14,7 @@
         <a class="link" href="ofertas_del_dia">Ver todas las ofertas del día </a>
       </div>
     
-      <div class=" row w-100  mt-3">
+      <div class=" row w-100 p-0 mt-3 m-0">
 
 
   <?php 

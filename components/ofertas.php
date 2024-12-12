@@ -14,7 +14,7 @@
         <a class="link" href="ofertas">Ver todas las ofertas</a>
       </div>
     
-      <div class=" row w-100  mt-3">
+      <div class=" row w-100 p-0 mt-3 m-0">
 
 
   <?php 
@@ -26,7 +26,7 @@ if ($resultado_oferta->num_rows > 0) {
 ?>
 
 <div class="col-6 col-md-3 card-oferta d-flex ">
-        <div class="card  p-3">
+        <div class="card  p-3 ">
         <img src="<?php echo $data_oferta['img_producto']; ?>" class="card-img-top">
           
         <a href="/product/<?php echo $data_oferta['id']; ?>/<?php echo preg_replace('/[ ,.]/', '_', $data_oferta['producto']); ?>">
