@@ -6,52 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Stellar Admin</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="assets/vendors/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icons.min.css">
-    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/dist/assets/vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/dist/assets/vendors/flag-icon-css/css/flag-icons.min.css">
+    <link rel="stylesheet" href="/dist/assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" href="assets/vendors/jvectormap/jquery-jvectormap.css">
-    <link rel="stylesheet" href="assets/vendors/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="assets/vendors/chartist/chartist.min.css">
+    <link rel="stylesheet" href="/dist/assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/dist/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="/dist/assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/dist/assets/vendors/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="/dist/assets/vendors/chartist/chartist.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="assets/css/vertical-light-layout/style.css">
+    <link rel="stylesheet" href="/dist/assets/css/vertical-light-layout/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <link rel="shortcut icon" href="/dist/assets/images/favicon.png" />
   </head>
   <body>
     <div class="container-scroller">
-      <div class="row p-0 m-0 proBanner" id="proBanner">
-        <div class="col-md-12 p-0 m-0">
-          <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
-            <div class="ps-lg-1">
-              <div class="d-flex align-items-center justify-content-between">
-                <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
-                <a href="https://www.bootstrapdash.com/product/stellar-admin-template/" target="_blank" class="btn me-2 buy-now-btn border-0">Buy Now</a>
-              </div>
-            </div>
-            <div class="d-flex align-items-center justify-content-between">
-              <a href="https://www.bootstrapdash.com/product/stellar-admin-template/"><i class="icon-home me-3 text-white"></i></a>
-              <button id="bannerClose" class="btn border-0 p-0">
-                <i class="icon-close text-white me-0"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+  
+
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
           <a class="navbar-brand brand-logo" href="index.html">
-            <img src="assets/images/logo.svg" alt="logo" class="logo-dark" />
-            <img src="assets/images/logo-light.svg" alt="logo-light" class="logo-light">
+            <img src="/dist/assets/images/logo.svg" alt="logo" class="logo-dark" />
+            <img src="/dist/assets/images/logo-light.svg" alt="logo-light" class="logo-light">
           </a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="/dist/assets/images/logo-mini.svg" alt="logo" /></a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="icon-menu"></span>
           </button>
@@ -78,7 +62,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                    <img src="/dist/assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
                   </div>
                   <div class="preview-item-content flex-grow py-2">
                     <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
@@ -87,7 +71,7 @@
                 </a>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                    <img src="/dist/assets/images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
                   </div>
                   <div class="preview-item-content flex-grow py-2">
                     <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
@@ -96,7 +80,7 @@
                 </a>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+                    <img src="/dist/assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
                   </div>
                   <div class="preview-item-content flex-grow py-2">
                     <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
@@ -125,10 +109,10 @@
             </li>
             <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle ms-2" src="assets/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal"> Henry Klein </span></a>
+                <img class="img-xs rounded-circle ms-2" src="/dist/assets/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal"> Henry Klein </span></a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
-                  <img class="img-md rounded-circle" src="assets/images/faces/face8.jpg" alt="Profile image">
+                  <img class="img-md rounded-circle" src="/dist/assets/images/faces/face8.jpg" alt="Profile image">
                   <p class="mb-1 mt-3">Henry Klein</p>
                   <p class="font-weight-light text-muted mb-0">kleinhenry@gmail.com</p>
                 </div>
@@ -151,12 +135,12 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item navbar-brand-mini-wrapper">
-              <a class="nav-link navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+              <a class="nav-link navbar-brand brand-logo-mini" href="index.html"><img src="/dist/assets/images/logo-mini.svg" alt="logo" /></a>
             </li>
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
+                  <img class="img-xs rounded-circle" src="/dist/assets/images/faces/face8.jpg" alt="profile image">
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
@@ -378,10 +362,10 @@
                         <tbody>
                           <tr>
                             <td>
-                              <img class="img-sm rounded-circle" src="assets/images/faces/face1.jpg" alt="profile image"> Katie Holmes
+                              <img class="img-sm rounded-circle" src="/dist/assets/images/faces/face1.jpg" alt="profile image"> Katie Holmes
                             </td>
                             <td>$3621</td>
-                            <td><img src="assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon me-2"> alipay</td>
+                            <td><img src="/dist/assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon me-2"> alipay</td>
                             <td>04 Jun 2019</td>
                             <td>18 Jul 2019</td>
                             <td>
@@ -390,10 +374,10 @@
                           </tr>
                           <tr>
                             <td>
-                              <img class="img-sm rounded-circle" src="assets/images/faces/face2.jpg" alt="profile image"> Minnie Copeland
+                              <img class="img-sm rounded-circle" src="/dist/assets/images/faces/face2.jpg" alt="profile image"> Minnie Copeland
                             </td>
                             <td>$6245</td>
-                            <td><img src="assets/images/dashboard/paypal.png" alt="alipay" class="gateway-icon me-2"> Paypal</td>
+                            <td><img src="/dist/assets/images/dashboard/paypal.png" alt="alipay" class="gateway-icon me-2"> Paypal</td>
                             <td>25 Sep 2019</td>
                             <td>07 Oct 2019</td>
                             <td>
@@ -402,10 +386,10 @@
                           </tr>
                           <tr>
                             <td>
-                              <img class="img-sm rounded-circle" src="assets/images/faces/face3.jpg" alt="profile image"> Rodney Sims
+                              <img class="img-sm rounded-circle" src="/dist/assets/images/faces/face3.jpg" alt="profile image"> Rodney Sims
                             </td>
                             <td>$9265</td>
-                            <td><img src="assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon me-2"> alipay</td>
+                            <td><img src="/dist/assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon me-2"> alipay</td>
                             <td>12 dec 2019</td>
                             <td>26 Aug 2019</td>
                             <td>
@@ -414,10 +398,10 @@
                           </tr>
                           <tr>
                             <td>
-                              <img class="img-sm rounded-circle" src="assets/images/faces/face4.jpg" alt="profile image"> Carolyn Barker
+                              <img class="img-sm rounded-circle" src="/dist/assets/images/faces/face4.jpg" alt="profile image"> Carolyn Barker
                             </td>
                             <td>$2263</td>
-                            <td><img src="assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon me-2"> alipay</td>
+                            <td><img src="/dist/assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon me-2"> alipay</td>
                             <td>30 Sep 2019</td>
                             <td>20 Oct 2019</td>
                             <td>
@@ -497,7 +481,7 @@
                       <a href="#" class="btn btn-outline-info border-0 font-weight-semibold ms-auto p-0 btn-no-hover-bg">View more</a>
                     </div>
                     <div class="d-flex mt-4 py-3 border-bottom">
-                      <img class="img-sm rounded-circle" src="assets/images/faces/face3.jpg" alt="profile image">
+                      <img class="img-sm rounded-circle" src="/dist/assets/images/faces/face3.jpg" alt="profile image">
                       <div class="wrapper ms-2">
                         <p class="mb-1 font-weight-medium">Mobile Apps Redesign</p>
                         <small class="text-muted">+23 since last year</small>
@@ -505,7 +489,7 @@
                       <small class="text-muted ms-auto">10:07PM</small>
                     </div>
                     <div class="d-flex py-3 border-bottom">
-                      <img class="img-sm rounded-circle" src="assets/images/faces/face2.jpg">
+                      <img class="img-sm rounded-circle" src="/dist/assets/images/faces/face2.jpg">
                       <div class="wrapper ms-2">
                         <p class="mb-1 font-weight-medium">Inviting Join Apps Cont...</p>
                         <small class="text-muted">+23 since last year</small>
@@ -513,7 +497,7 @@
                       <small class="text-muted ms-auto">01:07AM</small>
                     </div>
                     <div class="d-flex py-3 border-bottom">
-                      <img class="img-sm rounded-circle" src="assets/images/faces/face4.jpg" alt="profile image">
+                      <img class="img-sm rounded-circle" src="/dist/assets/images/faces/face4.jpg" alt="profile image">
                       <div class="wrapper ms-2">
                         <p class="mb-1 font-weight-medium">Website Redesign</p>
                         <small class="text-muted">+23 since last year</small>
@@ -521,7 +505,7 @@
                       <small class="text-muted ms-auto">04:42AM</small>
                     </div>
                     <div class="d-flex py-3  border-bottom">
-                      <img class="img-sm rounded-circle" src="assets/images/faces/face8.jpg">
+                      <img class="img-sm rounded-circle" src="/dist/assets/images/faces/face8.jpg">
                       <div class="wrapper ms-2">
                         <p class="mb-1 font-weight-medium">Analytics Dashboard</p>
                         <small class="text-muted">+23 since last year</small>
@@ -529,7 +513,7 @@
                       <small class="text-muted ms-auto">07:44PM</small>
                     </div>
                     <div class="d-flex pt-3">
-                      <img class="img-sm rounded-circle" src="assets/images/faces/face7.jpg">
+                      <img class="img-sm rounded-circle" src="/dist/assets/images/faces/face7.jpg">
                       <div class="wrapper ms-2">
                         <p class="mb-1 font-weight-medium">Great Logo Design</p>
                         <small class="text-muted">+23 since last year</small>
@@ -787,28 +771,28 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/dist/assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="assets/vendors/chart.js/chart.umd.js"></script>
-    <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
-    <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-    <script src="assets/vendors/moment/moment.min.js"></script>
-    <script src="assets/vendors/daterangepicker/daterangepicker.js"></script>
-    <script src="assets/vendors/chartist/chartist.min.js"></script>
-    <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
-    <script src="assets/js/jquery.cookie.js"></script>
+    <script src="/dist/assets/vendors/chart.js/chart.umd.js"></script>
+    <script src="/dist/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="/dist/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/dist/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="/dist/assets/vendors/moment/moment.min.js"></script>
+    <script src="/dist/assets/vendors/daterangepicker/daterangepicker.js"></script>
+    <script src="/dist/assets/vendors/chartist/chartist.min.js"></script>
+    <script src="/dist/assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="/dist/assets/js/jquery.cookie.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/todolist.js"></script>
+    <script src="/dist/assets/js/off-canvas.js"></script>
+    <script src="/dist/assets/js/hoverable-collapse.js"></script>
+    <script src="/dist/assets/js/misc.js"></script>
+    <script src="/dist/assets/js/settings.js"></script>
+    <script src="/dist/assets/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="assets/js/dashboard.js"></script>
+    <script src="/dist/assets/js/dashboard.js"></script>
     <!-- End custom js for this page -->
   </body>
 </html>

@@ -19,4 +19,4 @@ RewriteRule ^c/cart/eliminar_data_cart$ /config/eliminar_data_cart.php [L,QSA]
 
 
 #admin
-RewriteRule ^admin/panel$ /etc/panel.php [L,QSA]
+RewriteRule ^admin/panel$ /dist/panel.php [L,QSA]
