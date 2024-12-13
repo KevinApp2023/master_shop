@@ -22,12 +22,12 @@ if(!empty($_POST['user']) & !empty($_POST['pass']) ){
         $_SESSION['user'] = $row['user'];
         $_SESSION['priv'] = $row['priv'];
       }else{
-        echo "Contraseña incorrecta. Intente nuevamente con una nueva contraseña";
+        echo "Contraseña incorrecta, Intente nuevamente con una nueva contraseña!";
       }
    
   
     }else{
-      echo "El usuario no existe.";
+      echo "El usuario no existe, Intente nuevamente con un usuario diferente!";
     }
   
   }

@@ -161,6 +161,7 @@ if(empty($_GET['category'])){ ?>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+      <div id="liveAlertPlaceholder"></div>
       <div class="form_login ">
             <div >
               <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
@@ -181,6 +182,7 @@ if(empty($_GET['category'])){ ?>
             <div class="mt-4 mb-2">
                 <div class="btn <?= $btnClass ?> w-100">Registrar</div>
             </div>
+            <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
         </div>
 
 
@@ -195,10 +197,31 @@ if(empty($_GET['category'])){ ?>
 
 
 <script>
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+const appendAlert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+
+  alertPlaceholder.append(wrapper)
+}
+
+
+
+
+</script>
+
+
+
+
+<script>
 $(document).ready(function() {
   $('#acceso').click(function(e) {
     e.preventDefault(); 
-
 
     var user = $('#user').val();
     var pass = $('#pass').val();
@@ -209,35 +232,16 @@ $(document).ready(function() {
     };
 
     $.ajax({
-      url: '/c/cart/add',  
+      url: '/mi/acceso',  
       method: 'POST',    
       data: datos_acceso,     
       success: function(response) {
-
-        actualizarCarrito();
-
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 1500,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          }
-        });
-
-        Toast.fire({
-          icon: "success",
-          title: "Producto añadido al carrito con éxito"
-        });
+        appendAlert('Nice, you triggered this alert message!', '<?= $color_top ?>')
       },
       error: function(xhr, status, error) {
         alert("Error: " + error);
       }
     });
   });
-  actualizarCarrito();
 });
 </script>
