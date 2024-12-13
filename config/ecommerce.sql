@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-12-2024 a las 08:49:03
+-- Tiempo de generación: 13-12-2024 a las 15:34:16
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -210,6 +210,25 @@ INSERT INTO `pag` (`id`, `pagina`, `componente`, `data_componente`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `perfil`
+--
+
+CREATE TABLE `perfil` (
+  `id` int(11) NOT NULL,
+  `nombres` text NOT NULL,
+  `apellidos` text NOT NULL,
+  `correo` text NOT NULL,
+  `telefono` text NOT NULL,
+  `direccion` text NOT NULL,
+  `ciudad` text NOT NULL,
+  `pais` text NOT NULL,
+  `fecha_nacimiento` text NOT NULL,
+  `sexo` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `products`
 --
 
@@ -242,6 +261,27 @@ INSERT INTO `products` (`id`, `ref`, `producto`, `category`, `descripcion`, `des
 (10, '1783', 'Auriculares inalámbricos Bluetooth', '', '<p><strong>¡Escucha tu música con libertad y calidad!</strong><br><br>Sonido estéreo de alta calidad.<br>Conexión Bluetooth 5.0 para mayor alcance.<br>Duración de batería de hasta 20 horas.</p>', '<p><strong>¡Libérate de los cables y disfruta del mejor sonido!</strong></p><br><p><strong>Inalámbricos:</strong> Estos auriculares ofrecen una excelente calidad de sonido estéreo con Bluetooth 5.0 para conexión sin interrupciones. La duración de la batería te permite disfrutar de música, llamadas y juegos hasta 20 horas.</p>', '159900', '/img/products/p_1_1.jpg', '1', 1, 139900, 0, 1),
 (11, '1234', 'Cargador portátil 10000 mAh', '', '<p><strong>¡Nunca te quedes sin batería!</strong><br><br>Carga rápida para tus dispositivos móviles.<br>Batería de 10000 mAh para múltiples cargas.<br>Diseño compacto y ligero.</p>', '<p><strong>¡Lleva la energía siempre contigo!</strong></p><br><p><strong>Rápido y potente:</strong> Con este cargador portátil de 10000 mAh, podrás cargar rápidamente tus dispositivos mientras estás en movimiento. Su tamaño compacto lo hace fácil de llevar en tu bolso o mochila.</p>', '79900', '/img/products/p_1_1.jpg', '1', 1, 69900, 0, 1),
 (12, '1567', 'Cámara de seguridad Wi-Fi para interiores', '', '<p><strong>¡Mantén tu hogar seguro las 24 horas!</strong><br><br>Visión nocturna y detección de movimiento.<br>Conexión Wi-Fi para visualización remota.<br>Fácil instalación y control desde tu teléfono móvil.</p>', '<p><strong>¡Protege tu hogar de manera inteligente!</strong></p><br><p><strong>Características:</strong> Esta cámara de seguridad para interiores cuenta con visión nocturna, detección de movimiento y se conecta a tu red Wi-Fi para poder visualizar en tiempo real desde tu teléfono móvil. Su instalación es fácil y rápida, proporcionando seguridad en todo momento.</p>', '179900', '/img/products/p_1_1.jpg', '1', 1, 159900, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `id_perfil` int(11) NOT NULL,
+  `user` text NOT NULL,
+  `pass` text NOT NULL,
+  `priv` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `id_perfil`, `user`, `pass`, `priv`) VALUES
+(1, 0, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1);
 
 --
 -- Índices para tablas volcadas
@@ -296,6 +336,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -346,6 +392,12 @@ ALTER TABLE `pag`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
