@@ -2,8 +2,8 @@
 
 session_start();
 
-$_SESSION['id'] = '1';
-$_SESSION['priv'] = '2';
+$_SESSION['id'] = '0';
+$_SESSION['priv'] = '0';
 
 
 
