@@ -54,11 +54,21 @@
                                         <a class="nav-link <?= $textClass ?>" href="">Contacto</a>
                                     </li>
                                 </ul>
-                                <div class="row m-0 ">
+                                <div class="row m-0 p-0 ">
                                    <?php
                                    if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
                                     if ($_SESSION['priv'] == 1){ ?>
-                                        <a href="/admin/panel"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Administrador</a>
+                                       
+                                        <div class="dropdown-center">
+  <button class="btn w-100  mt-2 mb-0 <?= $btnClass ?> dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <i class="bi bi-person-circle"> </i>  Mi Perfil
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item <?= $bgClass ?>  <?= $textClass ?>" href="#">Administrar</a></li>
+    <hr>
+    <li><a class="dropdown-item <?= $bgClass ?>  <?= $textClass ?>" href="/mi/cerrar_sesion">Cerrar sesion</a></li>
+  </ul>
+</div>
                                     <?php }
                                     if ($_SESSION['priv'] == 2){ ?>
                                         <a href="/mi/perfil"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Mi Perfil</a>
