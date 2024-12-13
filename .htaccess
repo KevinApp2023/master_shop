@@ -2,6 +2,7 @@
 RewriteEngine On
 RewriteRule ^$ /src/home.php [L,QSA]
 RewriteRule ^mi/perfil$ /src/perfil.php [L,QSA]
+RewriteRule ^mi/acceso$ /config/login.php [L,QSA]
 
 # Products
 RewriteRule ^([^/]+)$ /src/home.php?category=&_=$1 [L,QSA]

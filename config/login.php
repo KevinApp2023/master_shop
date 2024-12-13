@@ -1,5 +1,5 @@
 <?php
-include("../../config/conex.php"); 
+include("../config/conex.php"); 
 session_start();
 
 if(!empty($_POST['user']) & !empty($_POST['pass']) ){

@@ -231,9 +231,9 @@ $(document).ready(function() {
 
 
 
-
-
 <?php include("../mod/footer.php"); ?>
+
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const quantityGroups = document.querySelectorAll('.row.quantity');

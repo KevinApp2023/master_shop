@@ -164,14 +164,14 @@ if(empty($_GET['category'])){ ?>
       <div class="form_login ">
             <div >
               <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="usuario@mail.com">
+              <input type="email" class="form-control" id="user" placeholder="usuario@mail.com">
             </div>
             <div class="mt-4">
                 <label for="inputPassword5" class="form-label">Contraseña</label>
-                <input type="password" id="inputPassword5" class="form-control" placeholder="Contraseña" aria-describedby="passwordHelpBlock">
+                <input type="password" id="pass" class="form-control" placeholder="Contraseña" aria-describedby="passwordHelpBlock">
             </div>
             <div class="mt-4 ">
-                <div class="btn <?= $TopbgClass ?> <?= $ToptextClass ?> w-100">Iniciar Acceso</div>
+                <div id="acceso" class="btn <?= $TopbgClass ?> <?= $ToptextClass ?> w-100">Iniciar Acceso</div>
                 
             </div>
             <div class="hoc text-center mt-2">
@@ -190,3 +190,54 @@ if(empty($_GET['category'])){ ?>
     </div>
   </div>
 </div>
+
+
+
+
+<script>
+$(document).ready(function() {
+  $('#acceso').click(function(e) {
+    e.preventDefault(); 
+
+
+    var user = $('#user').val();
+    var pass = $('#pass').val();
+
+    var datos_acceso = {
+        user: user,
+        pass: pass
+    };
+
+    $.ajax({
+      url: '/c/cart/add',  
+      method: 'POST',    
+      data: datos_acceso,     
+      success: function(response) {
+
+        actualizarCarrito();
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Producto añadido al carrito con éxito"
+        });
+      },
+      error: function(xhr, status, error) {
+        alert("Error: " + error);
+      }
+    });
+  });
+  actualizarCarrito();
+});
+</script>
