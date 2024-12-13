@@ -232,6 +232,7 @@ $(document).ready(function() {
 
 
 <?php include("../mod/footer.php"); ?>
+<?php include("../mod/node_modules.php"); ?>
 
 
 <script>

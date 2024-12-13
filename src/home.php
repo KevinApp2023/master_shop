@@ -111,5 +111,6 @@ document.querySelector('#alll').addEventListener('click', function() {
 
 ?>
 <?php include("../mod/footer.php"); ?>
+<?php include("../mod/node_modules.php"); ?>
 </body>
 </html>
