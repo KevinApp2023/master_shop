@@ -1,6 +1,16 @@
 <?php
 
 session_start();
+
+if (($_SESSION['id'])) {
+
+  if ($_SESSION['tipo_usuario'] == 1){
+      header('Location: /admin/panel');}
+}
+
+
+
+
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = []; 
 }

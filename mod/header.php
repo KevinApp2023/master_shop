@@ -55,8 +55,8 @@
                                     </li>
                                 </ul>
                                 <div class="row m-0 ">
-                                    <a class="col btn <?= $btnClass ?> w-100 m-2 mt-2 mb-0">Login</a>
-                                    <a class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Registrar</a>
+                                    <a data-bs-toggle="modal" data-bs-target="#login" class="col btn <?= $btnClass ?> w-100 m-2 mt-2 mb-0">Acceso</a>
+                                    <a href="/etc/register"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Registrar</a>
                                 </div>
                             </div>
                         </div>
@@ -140,3 +140,43 @@ if(empty($_GET['category'])){ ?>
 </div>
 
 
+
+
+
+<div class="modal fade " id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Acceso</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="form_login ">
+            <div >
+              <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="usuario@mail.com">
+            </div>
+            <div class="mt-4">
+                <label for="inputPassword5" class="form-label">Contraseña</label>
+                <input type="password" id="inputPassword5" class="form-control" placeholder="Contraseña" aria-describedby="passwordHelpBlock">
+            </div>
+            <div class="mt-4 ">
+                <div class="btn <?= $TopbgClass ?> <?= $ToptextClass ?> w-100">Iniciar Acceso</div>
+                
+            </div>
+            <div class="hoc text-center mt-2">
+            <a class="text-center">¿Has olvidado la contraseña?</a>
+            </div>
+            <hr>
+            <div class="mt-4 mb-2">
+                <div class="btn <?= $btnClass ?> w-100">Registrar</div>
+            </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
