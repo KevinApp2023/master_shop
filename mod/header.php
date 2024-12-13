@@ -55,8 +55,18 @@
                                     </li>
                                 </ul>
                                 <div class="row m-0 ">
+                                   <?php
+                                   if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+                                    if ($_SESSION['priv'] == 1){ ?>
+                                        <a href="/admin/panel"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Administrador</a>
+                                    <?php }
+                                    if ($_SESSION['priv'] == 2){ ?>
+                                        <a href="/mi/perfil"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Mi Perfil</a>
+                                   <?php }
+                                }else{ ?>
                                     <a data-bs-toggle="modal" data-bs-target="#login" class="col btn <?= $btnClass ?> w-100 m-2 mt-2 mb-0">Acceso</a>
                                     <a href="/etc/register"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Registrar</a>
+                                <?php } ?>
                                 </div>
                             </div>
                         </div>

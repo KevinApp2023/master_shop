@@ -2,11 +2,9 @@
 
 session_start();
 
-if (($_SESSION['id'])) {
+$_SESSION['id'] = '1';
+$_SESSION['priv'] = '2';
 
-  if ($_SESSION['tipo_usuario'] == 1){
-      header('Location: /admin/panel');}
-}
 
 
 
