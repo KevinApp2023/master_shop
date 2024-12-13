@@ -161,7 +161,7 @@ if(empty($_GET['category'])){ ?>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <div id="liveAlertPlaceholder"></div>
+      <div id="liveAlertPlaceholder" class="row flex-column-reverse"></div>
       <div class="form_login ">
             <div >
               <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
@@ -182,7 +182,6 @@ if(empty($_GET['category'])){ ?>
             <div class="mt-4 mb-2">
                 <div class="btn <?= $btnClass ?> w-100">Registrar</div>
             </div>
-            <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
         </div>
 
 
@@ -201,7 +200,7 @@ if(empty($_GET['category'])){ ?>
 const appendAlert = (message, type) => {
   const wrapper = document.createElement('div')
   wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `<div class="alert alert-${type} alert-dismissible col-md-12" role="alert">`,
     `   <div>${message}</div>`,
     '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
     '</div>'
@@ -236,7 +235,13 @@ $(document).ready(function() {
       method: 'POST',    
       data: datos_acceso,     
       success: function(response) {
-        appendAlert('Nice, you triggered this alert message!', '<?= $color_top ?>')
+        if (response == 'Error 101'){
+            appendAlert('El usuario no existe, Intente nuevamente con un usuario diferente!', '<?= $color_top ?>')
+        }else if (response == 'Error 102'){
+            appendAlert('Contraseña incorrecta, Intente nuevamente con una nueva contraseña!', '<?= $color_top ?>')
+        }else if (response == 'Active'){
+            location.reload();
+        }
       },
       error: function(xhr, status, error) {
         alert("Error: " + error);
