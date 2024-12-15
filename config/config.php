@@ -9,7 +9,7 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = []; 
 }
 
-$consult = "SELECT * FROM config WHERE name IN ('color_nav', 'url', 'title', 'keywords', 'author', 'description', 'icon', 'logo_nav', 'lang', 'color_top', 'facebook', 'youtube', 'instagram', 'linkedin', 'x', 'github', 'telegram', 'whatsapp', 'gmail', 'skype','texto_top')";
+$consult = "SELECT * FROM config WHERE name IN ('color_nav', 'url', 'title', 'keywords', 'author', 'description', 'icon', 'logo_nav', 'lang', 'color_top', 'facebook', 'youtube', 'instagram', 'linkedin', 'x', 'github', 'telegram', 'whatsapp', 'gmail', 'skype', 'texto_top', 'pinterest', 'tiktok', 'snapchat', 'vero', 'etsy', 'reddit', 'flickr')";
 $resultado = $conex->query($consult);
 
 if ($resultado->num_rows > 0) {
@@ -45,39 +45,86 @@ if ($resultado->num_rows > 0) {
             case 'color_top':
                 $color_top = $data['data'];
                 break;
-            case 'facebook':
-                $facebook = $data['data'];
-                break;
-            case 'youtube':
-                $youtube = $data['data'];
-                break;
-            case 'instagram':
-                $instagram = $data['data'];
-                break;
-            case 'linkedin':
-                $linkedin = $data['data'];
-                break;
-            case 'x':
-                $x = $data['data'];
-                break;
-            case 'github':
-                $githud = $data['data'];
-                break;
-            case 'telegram':
-                $telegram = $data['data'];
-                break;
-            case 'whatsapp':
-                $whatsapp = $data['data'];
-                break;
-            case 'gmail':
-                $gmail = $data['data'];
-                break;
-            case 'skype':
-                $skype = $data['data'];
-                break;
+
             case 'texto_top':
                 $texto_top = $data['data'];
                 break;
+
+                
+            case 'epayco_api':
+                $epayco_api = $data['data'];
+                break;
+
+
+            case 'facebook':
+                $facebook = $data['data'];
+                break;
+
+            case 'instagram':
+                $instagram = $data['data'];
+                break;
+
+            case 'linkedin':
+                $linkedin = $data['data'];
+                break;
+
+            case 'x':  
+                $x = $data['data'];
+                break;
+
+            case 'github':
+                $github = $data['data'];
+                break;
+
+            case 'telegram':
+                $telegram = $data['data'];
+                break;
+
+            case 'whatsapp':
+                $whatsapp = $data['data'];
+                break;
+
+            case 'gmail':
+                $gmail = $data['data'];
+                break;
+
+            case 'skype':
+                $skype = $data['data'];
+                break;
+
+            case 'pinterest':
+                $pinterest = $data['data'];
+                break;
+
+            case 'youtube':
+                $youtube = $data['data'];
+                break;
+
+            case 'tiktok':
+                $tiktok = $data['data'];
+                break;
+
+            case 'snapchat':
+                $snapchat = $data['data'];
+                break;
+
+            case 'vero':
+                $vero = $data['data'];
+                break;
+
+            case 'etsy':
+                $etsy = $data['data'];
+                break;
+
+            case 'reddit':
+                $reddit = $data['data'];
+                break;
+            
+                
+            case 'flickr':
+                $flickr = $data['data'];
+                break;
+                
   
         
         }

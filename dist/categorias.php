@@ -10,8 +10,6 @@
         <div class="main-panel">
           <div class="content-wrapper" >
           
-           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-          
 
           </div>
     <?php  include("../dist/assets/mod/footer.php"); ?>
