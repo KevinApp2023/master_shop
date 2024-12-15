@@ -37,10 +37,10 @@
 
 
 
-      <div class="container-fluid page-body-wrapper">
+      <div class="container-fluid page-body-wrapper" >
 
-  <nav class="sidebar sidebar-offcanvas" id="sidebar">
-  <ul class="nav">
+  <nav class="sidebar sidebar-offcanvas" id="sidebar" >
+  <ul class="nav" >
       <li class="nav-item navbar-brand-mini-wrapper">
         <a class="nav-link navbar-brand brand-logo-mini" href=""><img src="/dist/assets/images/logo-mini.svg" alt="logo" /></a>
        
@@ -110,7 +110,7 @@
 
 
       <li class="nav-item">
-        <a class="nav-link" href="/admin/clientes">
+        <a class="nav-link" href="/admin/cms">
           <span class="menu-title">CMS</span>
           <i class="icon-screen-desktop menu-icon"></i>
         </a>

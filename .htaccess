@@ -20,3 +20,10 @@ RewriteRule ^c/cart/eliminar_data_cart$ /config/eliminar_data_cart.php [L,QSA]
 
 #admin
 RewriteRule ^admin/panel$ /dist/panel.php [L,QSA]
+RewriteRule ^admin/productos$ /dist/productos.php [L,QSA]
+RewriteRule ^admin/categorias$ /dist/categorias.php [L,QSA]
+RewriteRule ^admin/pedidos$ /dist/pedidos.php [L,QSA]
+RewriteRule ^admin/clientes$ /dist/clientes.php [L,QSA]
+RewriteRule ^admin/cms$ /dist/cms.php [L,QSA]
+RewriteRule ^admin/reseñas$ /dist/reseñas.php [L,QSA]
+RewriteRule ^admin/configuracion$ /dist/configuracion.php [L,QSA]
