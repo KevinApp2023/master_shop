@@ -118,8 +118,8 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="/admin/reseñas">
-          <span class="menu-title">Reseñas</span>
+        <a class="nav-link" href="/admin/comentarios">
+          <span class="menu-title">comentarios</span>
           <i class="bi bi-chat-square-text menu-icon"></i>
         </a>
       </li>
