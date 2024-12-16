@@ -10,9 +10,14 @@
     <div class="main-panel" style="height:100vh; p-0">
           <div class="content-wrapper" >
           
-           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-          
+          <?= $_POST['id']; ?>
 
+
+
+
+
+
+          
           </div>
     <?php  include("../dist/assets/mod/footer.php"); ?>
 

@@ -46,7 +46,7 @@
 
 
                             <script>
-      function editar() {
+      function editar(id) {
                 Swal.fire({
                     title: "¿Estás seguro?",
                     text: "¿Deseas editar los datos?",
@@ -57,7 +57,18 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         
+                        var form = $('<form>', {
+                            'method': 'POST',
+                            'action': '/admin/inf_producto' 
+                        });
 
+                        $('<input>').attr({
+                            'type': 'hidden',
+                            'name': 'id',
+                            'value': id 
+                        }).appendTo(form);
+
+                        form.appendTo('body').submit();
                         
                     }
                 });
@@ -71,7 +82,7 @@
           
                 Swal.fire({
                     title: '¿Estás seguro?',
-                    text: '¿Deseas ir a facturacion?',
+                    text: '¿Deseas eliminar esteproducto?',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
