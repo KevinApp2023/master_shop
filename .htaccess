@@ -27,3 +27,5 @@ RewriteRule ^admin/clientes$ /dist/clientes.php [L,QSA]
 RewriteRule ^admin/cms$ /dist/cms.php [L,QSA]
 RewriteRule ^admin/comentarios$ /dist/comentarios.php [L,QSA]
 RewriteRule ^admin/configuracion$ /dist/configuracion.php [L,QSA]
+
+RewriteRule ^admin/inf_producto$ /dist/inf_producto.php [L,QSA]

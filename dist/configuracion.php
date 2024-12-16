@@ -9,7 +9,7 @@
     <div class="container-scroller">
     <?php include("../dist/assets/mod/navbar.php");?>
   
-        <div class="main-panel">
+    <div class="main-panel" style="height:100vh; p-0">
           <div class="content-wrapper " >
           <div class="container">
           
