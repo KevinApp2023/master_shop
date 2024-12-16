@@ -5,9 +5,11 @@ $buscar_producto = $_POST['buscar_producto'];
 $where = "WHERE 1=1";
 
 if (!empty($buscar_producto)) {
-    $where .= " AND producto LIKE '%$buscar_producto%'";
-  }
-  
+    $buscar_producto = $conex->real_escape_string($buscar_producto); // Para prevenir inyecciones SQL
+    $where .= " AND (ref LIKE '%$buscar_producto%' OR producto LIKE '%$buscar_producto%')";
+}
+
+
 
 $sql = "SELECT * FROM products $where";
 $resultado = $conex->query($sql);
@@ -26,7 +28,7 @@ if ($resultado->num_rows > 0) {
         }
     
         if($fila['oferta'] == 1) {
-            $valor_producto = '<span class="card-val fst-italic text-decoration-line-through m-0 text-danger" > $' . $fila['valor_producto'] . '</span> $' .  $fila['valor_producto_oferta']; 
+            $valor_producto = '<span class="card-val fst-italic text-decoration-line-through m-0 text-danger" > $' . $fila['valor_producto'] . '</span><br> $' .  $fila['valor_producto_oferta']; 
             $estado[] .= '<i class="bi bi-circle-fill text-success"></i> '; 
         } else {
             $valor_producto = '$' . $fila['valor_producto'];
@@ -34,7 +36,7 @@ if ($resultado->num_rows > 0) {
         }
     
         if($fila['oferta_dia'] == 1) {
-            $valor_producto = '<span class="card-val fst-italic text-decoration-line-through m-0 text-danger" > $' . $fila['valor_producto'] . '</span> $' .  $fila['valor_producto_oferta']; 
+            $valor_producto = '<span class="card-val fst-italic text-decoration-line-through m-0 text-danger" > $' . $fila['valor_producto'] . '</span><br> $' .  $fila['valor_producto_oferta']; 
             $estado[] .= '<i class="bi bi-circle-fill text-warning"></i> '; 
         } else {
             $valor_producto = '$' . $fila['valor_producto'];
