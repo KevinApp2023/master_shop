@@ -14,3 +14,5 @@
     <script src="/dist/assets/js/settings.js"></script>
     <script src="/dist/assets/js/todolist.js"></script>
     <script src="/dist/assets/js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.2/dist/sweetalert2.all.min.js"></script>
+

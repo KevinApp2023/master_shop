@@ -9,7 +9,7 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = []; 
 }
 
-$consult = "SELECT * FROM config WHERE name IN ('color_nav', 'url', 'title', 'keywords', 'author', 'description', 'icon', 'logo_nav', 'lang', 'color_top', 'facebook', 'youtube', 'instagram', 'linkedin', 'x', 'github', 'telegram', 'whatsapp', 'gmail', 'skype', 'texto_top', 'pinterest', 'tiktok', 'snapchat', 'vero', 'etsy', 'reddit', 'flickr')";
+$consult = "SELECT * FROM config WHERE name IN ('color_nav', 'url', 'title', 'keywords', 'author', 'description', 'icon', 'logo_nav', 'epayco_api', 'lang', 'color_top', 'facebook', 'youtube', 'instagram', 'linkedin', 'x', 'github', 'telegram', 'whatsapp', 'gmail', 'skype', 'texto_top', 'pinterest', 'tiktok', 'snapchat', 'vero', 'etsy', 'reddit', 'flickr')";
 $resultado = $conex->query($consult);
 
 if ($resultado->num_rows > 0) {
@@ -249,4 +249,74 @@ if ($resultado_category_banner->num_rows > 0) {
     }
 }
 
+}
+
+
+switch ($lang) {
+    case 'es':
+        $idioma = 'Español';
+        break;
+    case 'en':
+        $idioma = 'Inglés';
+        break;
+    case 'fr':
+        $idioma = 'Francés';
+        break;
+    case 'de':
+        $idioma = 'Alemán';
+        break;
+    case 'it':
+        $idioma = 'Italiano';
+        break;
+    case 'pt':
+        $idioma = 'Portugués';
+        break;
+    case 'zh':
+        $idioma = 'Chino';
+        break;
+    case 'ja':
+        $idioma = 'Japonés';
+        break;
+    case 'ru':
+        $idioma = 'Ruso';
+        break;
+    case 'ar':
+        $idioma = 'Árabe';
+        break;
+    case 'hi':
+        $idioma = 'Hindi';
+        break;
+    case 'bn':
+        $idioma = 'Bengalí';
+        break;
+    case 'ko':
+        $idioma = 'Coreano';
+        break;
+    case 'tr':
+        $idioma = 'Turco';
+        break;
+    case 'pl':
+        $idioma = 'Polaco';
+        break;
+    case 'uk':
+        $idioma = 'Ucraniano';
+        break;
+    case 'nl':
+        $idioma = 'Neerlandés';
+        break;
+    case 'sv':
+        $idioma = 'Sueco';
+        break;
+    case 'no':
+        $idioma = 'Noruego';
+        break;
+    case 'da':
+        $idioma = 'Danés';
+        break;
+    case 'fi':
+        $idioma = 'Finlandés';
+        break;
+    default:
+        $idioma = 'Idioma no disponible';
+        break;
 }
