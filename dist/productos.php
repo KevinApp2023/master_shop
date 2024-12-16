@@ -59,7 +59,7 @@
                         
                         var form = $('<form>', {
                             'method': 'POST',
-                            'action': '/admin/inf_producto' 
+                            'action': '/admin/inf/productos' 
                         });
 
                         $('<input>').attr({

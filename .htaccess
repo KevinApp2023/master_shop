@@ -28,4 +28,4 @@ RewriteRule ^admin/cms$ /dist/cms.php [L,QSA]
 RewriteRule ^admin/comentarios$ /dist/comentarios.php [L,QSA]
 RewriteRule ^admin/configuracion$ /dist/configuracion.php [L,QSA]
 
-RewriteRule ^admin/inf_producto$ /dist/inf_producto.php [L,QSA]
+RewriteRule ^admin/inf/productos$ /dist/inf_productos.php [L,QSA]
