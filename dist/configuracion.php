@@ -1,6 +1,5 @@
 <?php include("../config/conex.php"); ?>
 <?php include("../config/config.php"); ?>
-<?php include("../config/priv.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">

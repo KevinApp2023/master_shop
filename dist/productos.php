@@ -9,6 +9,7 @@
   
         <div class="main-panel">
           <div class="content-wrapper" >
+            
           
           <div class="row">
             <div class=" col-xl col-md-12 order-2 order-md-1 mb-4">
@@ -44,32 +45,46 @@
                             </table>
 
 
+                            <script>
+      function editar() {
+                Swal.fire({
+                    title: "¿Estás seguro?",
+                    text: "¿Deseas editar los datos?",
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '¡Sí, Editar!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        
 
+                        
+                    }
+                });
+              }
+</script>
+
+
+
+<script>
+      function eliminar() {
+          
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: '¿Deseas ir a facturacion?',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '¡Sí, Continuar!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                       
+                    }
+                });
+              }
+    </script>
 
                             </div>
-
-
-
-<style>
-    
-    /* Reglas de CSS personalizadas */
-    .custom-input {
-      border-width: 2px;
-      
-    }   .hscroll {
-                  overflow-x: auto; /* Horizontal */
-                  overflow-y: auto; /* Horizontal */
-                max-height: 100vh;
-                
-                }
-
-                .fil{
-                    height: 1.875rem;
-                }
-</style>
-
-
-
 
 
 
@@ -141,46 +156,7 @@ function filtrar() {
           </div>
     <?php  include("../dist/assets/mod/footer.php"); ?>
 
-    <script>
-      function editar() {
-                Swal.fire({
-                    title: '¿Estás seguro?',
-                    text: '¿Deseas editar los datos?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '¡Sí, Editar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        
-
-                        
-                    }
-                });
-              }
-</script>
-
-
-
-<script>
-      function eliminar(id) {
-          
-                Swal.fire({
-                    title: '¿Estás seguro?',
-                    text: '¿Deseas ir a facturacion?',
-                    icon: 'question',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '¡Sí, Continuar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                       
-                    }
-                });
-              }
-    </script>
+ 
 
           
         </div>

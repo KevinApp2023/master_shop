@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/dist/assets/vendors/chartist/chartist.min.css">
     <link rel="stylesheet" href="/dist/assets/css/vertical-light-layout/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.2/dist/sweetalert2.all.min.js"></script>
 
 
   </head>
