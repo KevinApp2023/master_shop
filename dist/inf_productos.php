@@ -10,62 +10,133 @@
     <div class="main-panel" style="height:100vh; p-0">
           <div class="content-wrapper" >
           
+          <?=
+          
+          
+          $id = $_POST['id']; 
+
+        
+$consult_productos = "SELECT * FROM products WHERE id = '$id'";
+$resultado_productos = $conex->query($consult_productos);
+$first = true; 
+if ($resultado_productos->num_rows > 0) {
+    while ($data_productos = $resultado_productos->fetch_assoc()) { 
+    
+      $producto = $data_productos['producto'];
+       $d_producto = $data_productos['id'];
+       $ref_producto = $data_productos['ref'];
+       $category_producto = $data_productos['category'];
+       $img_producto = $data_productos['img_producto'];
+       $url_producto = preg_replace('/[ ,.]/', '_', $data_productos['producto']);
+       $valor_producto_oferta = $data_productos['valor_producto_oferta'];
+       $valor_producto = $data_productos['valor_producto'];
+       $valor_producto = $data_productos['valor_producto'];
+       $descripcion = $data_productos['descripcion'];
+       $descripcion_completa = $data_productos['descripcion_completa'];
+       $oferta = $data_productos['oferta'];
+       $oferta_dia = $data_productos['oferta_dia'];
+       if ($data_productos['estado'] == 0){
+        $estado = 'disabled';
+        $data_estado = '<h4 class="card-val fst-italic m-0 mt-4 text-danger text-center">Producto desactivado</h4>';
+       }else{
+        $data_estado = 'active';
+        $data_estado = '';
+
+       }
+    }
+}
+
+?>
+
+
 
           <div class="container">
 
-          <div class="accordion" id="accordionExample">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#informacion_general" type="button" role="tab" aria-controls="informacion_general" aria-selected="true">Informacion general</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Descripciones</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Galeria</button>
+  </li>
+  <li class="nav-item" role="presentation">
+  </li>
+</ul>
 
 
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="informacion_general" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Accordion Item #1
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Nombre Producto</label>
+      <input id="producto" value="<?= $producto ?>"  type="text" class="rounded border border-secondary form-control bg-white p-2"  placeholder="Producto">
+    </div>
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Referencia</label>
+      <input id="ref" value="<?= $ref_producto ?>"  type="text" class="rounded border border-secondary form-control bg-white p-2"  placeholder="Ref">
+    </div>
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Categorias</label>
+      <div class="row  g-2 d-flex ">
+        <div class="col d-flex">
+          <input id="category" value="<?= $category_producto ?>"  type="text" class="d-flex rounded border border-secondary form-control bg-white p-2"  placeholder="Categorias">
+        </div>
+        <div class="col-auto d-flex">
+          <a class="btn btn-danger  d-flex p-2 me-1" onclick="dele_category()"><i class="bi bi-trash"></i></a>
+          <a class="btn btn-success d-flex p-2 " data-bs-toggle="modal" data-bs-target="#add_category"><i class="bi bi-node-plus"></i></a>
+        </div>
+      </div>
+
+
+<div class="modal fade" id="add_category" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Categoria</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Agregar</button>
       </div>
     </div>
   </div>
-
-
-  
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Accordion Item #3
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-
-  
 </div>
+
+    </div>
+
+
+
+  </div>
+  
+  
+  
+  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+ 
+ 
+ 
+  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
 </div>
 
 
+            
+          </div>
 
+
+
+          <script>
+  function dele_category() {
+    $('#category').val('');
+  };
+</script>
 
 
           </div>
