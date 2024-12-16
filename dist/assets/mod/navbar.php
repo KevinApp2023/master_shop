@@ -1,17 +1,15 @@
 
-      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center ">
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row  ">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center  d-none d-md-block ">
           <div class=" brand-logo w-100"  href="">
           </div>
-          <a class="navbar-brand brand-logo-mini" >
-            <img src="<?= $icon ?>" alt="logo"   />
-          </a>
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="icon-menu"></span>
-          </button>
+    
+       
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center">
-     
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
           <ul class="navbar-nav navbar-nav-right">
          
            
@@ -37,13 +35,12 @@
 
 
 
-      <div class="container-fluid page-body-wrapper" >
+      <div class="container-fluid page-body-wrapper  " >
 
   <nav class="sidebar sidebar-offcanvas" id="sidebar" >
   <ul class="nav" >
       <li class="nav-item navbar-brand-mini-wrapper">
-        <a class="nav-link navbar-brand brand-logo-mini" href=""><img src="/dist/assets/images/logo-mini.svg" alt="logo" /></a>
-       
+       <br>
       </li>
       <li class="nav-item nav-profile">
         <a href="#"  class="nav-link disabled">
