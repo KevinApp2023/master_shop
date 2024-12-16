@@ -17,10 +17,11 @@ if ($resultado->num_rows > 0) {
   while ($fila = $resultado->fetch_assoc()) { 
     
     if($fila['estado'] != 1) {
-        $estado = '<i class="bi bi-circle-fill text-secondary"></i> <i class="bi bi-circle-fill text-secondary"></i> <i class="bi bi-circle-fill text-secondary"></i> ';
+        $estado = '<i class="bi bi-circle-fill text-secondary"></i> ';
     } else {
         $estado = [];
-    
+        
+        $estado[] .= '<i class="bi bi-circle-fill text-success"></i> '; 
         if($fila['popular'] == 1) {
             $estado[] .= '<i class="bi bi-circle-fill text-primary"></i> '; 
         } else {
@@ -29,10 +30,9 @@ if ($resultado->num_rows > 0) {
     
         if($fila['oferta'] == 1) {
             $valor_producto = '<span class="card-val fst-italic text-decoration-line-through m-0 text-danger" > $' . $fila['valor_producto'] . '</span><br> $' .  $fila['valor_producto_oferta']; 
-            $estado[] .= '<i class="bi bi-circle-fill text-success"></i> '; 
+            $estado[] .= '<i class="bi bi-circle-fill text-danger"></i> '; 
         } else {
             $valor_producto = '$' . $fila['valor_producto'];
-            $estado[] .= '<i class="bi bi-circle-fill text-secondary"></i> ';
         }
     
         if($fila['oferta_dia'] == 1) {
@@ -40,7 +40,6 @@ if ($resultado->num_rows > 0) {
             $estado[] .= '<i class="bi bi-circle-fill text-warning"></i> '; 
         } else {
             $valor_producto = '$' . $fila['valor_producto'];
-            $estado[] .= '<i class="bi bi-circle-fill text-secondary"></i>';
         }
     
     

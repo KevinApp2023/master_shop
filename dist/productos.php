@@ -119,9 +119,10 @@ function filtrar() {
          
               <div class="card rounded mt-2 p-2 w-100">
 
-                <label class="w-100 m-2 border border-0 border-bottom border-light-subtle pb-2">Desactivado <i class="ms-2 bi bi-circle-fill text-secondary"></i> <i class="bi bi-circle-fill text-secondary"></i> <i class="bi bi-circle-fill text-secondary"></i> </label>
+                <label class="w-100 m-2 border border-0 border-bottom border-light-subtle pb-2">Activo <i class="ms-2 bi bi-circle-fill text-success"></i></label>
+                <label class="w-100 m-2 border border-0 border-bottom border-light-subtle pb-2">Desactivado <i class="ms-2 bi bi-circle-fill text-secondary"></i></label>
                 <label class="w-100 m-2 border border-0 border-bottom border-light-subtle pb-2">Popular  <i class="ms-2 bi bi-circle-fill text-primary"></i> </label>
-                <label class="w-100 m-2 border border-0 border-bottom border-light-subtle pb-2">Oferta  <i class="ms-2 bi bi-circle-fill text-success"></i> </label>
+                <label class="w-100 m-2 border border-0 border-bottom border-light-subtle pb-2">Oferta  <i class="ms-2 bi bi-circle-fill text-danger"></i> </label>
                 <label class="w-100 m-2 border border-0 border-bottom border-light-subtle pb-2">Oferta del día  <i class="ms-2 bi bi-circle-fill text-warning"></i> </label>
 
 
@@ -135,7 +136,6 @@ function filtrar() {
           </div>
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
           </div>
