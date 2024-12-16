@@ -24,12 +24,12 @@
             </div>
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Url Principal</label>
+                <label for="firstName" class="form-label text-secondary">Url Principal</label>
                 <input value="<?= $url ?>"  type="link" class="rounded border border-secondary form-control bg-white p-2" id="url" placeholder="example.com">
               </div>
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Lenguaje</label>
+                <label for="firstName" class="form-label text-secondary">Lenguaje</label>
                 <select class="rounded border border-secondary form-control bg-white p-2 text-dark" id="lang" placeholder="Selecciona idioma">
     <option value="<?= $lang ?>" class="bg-secondary text-white"><?= $idioma ?></option>
     <option value="es" class="text-danger">Los lenguajes mas pupulares</option>
@@ -61,30 +61,30 @@
 
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Titulo</label>
+                <label for="firstName" class="form-label text-secondary">Titulo</label>
                 <input type="title" value="<?= $title ?>"class="rounded border border-secondary form-control bg-white p-2" id="title" placeholder="Titulo">
               </div>
 
               
               <div class="mb-3">
-                <label for="firstName" class="form-label">Keywords separados por comas (,)</label>
+                <label for="firstName" class="form-label text-secondary">Keywords separados por comas (,)</label>
                 <textarea rows="10" type="title" class="rounded border border-secondary form-control bg-white p-2" id="keywords" placeholder="Keywords separados por comas (,)"><?= $keywords ?></textarea>
               </div>
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Autor</label>
+                <label for="firstName" class="form-label text-secondary">Autor</label>
                 <input value="<?= $author ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="author" placeholder="Autor">
               </div>
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Descripcion</label>
+                <label for="firstName" class="form-label text-secondary">Descripcion</label>
                 <textarea  type="title" rows="10" class="rounded border border-secondary form-control bg-white p-2" id="descripcion" placeholder="Descripcion"><?= $description ?></textarea >
               </div>
 
               
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Icono Principal</label>
+                <label for="firstName" class="form-label text-secondary">Icono Principal</label>
                 <div class="row">
                   <div class="col">
                 <input  type="file" class="rounded border border-secondary form-control bg-white p-2" id="icon">
@@ -97,7 +97,7 @@
 
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Color Principal</label>
+                <label for="firstName" class="form-label text-secondary">Color Principal</label>
                 <select class="rounded border border-secondary form-control bg-white p-2 text-dark hover:bg-transparent hover:text-dark " id="color_top" placeholder="Keywords separados por comas (,)" >
                  <option value="<?= $color_top ?>" class="<?= $TopbgClass ?> <?= $ToptextClass ?>"><?= $color_top ?></option>
                 <option class="text-danger ">Todos los colores disponibles</option>
@@ -125,13 +125,13 @@
               </div>
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Texto Principal</label>
+                <label for="firstName" class="form-label text-secondary">Texto Principal</label>
                 <input value="<?= $texto_top ?>" type="title" class="rounded border border-secondary form-control bg-white p-2" id="texto_top" placeholder="Texto Principal">
               </div>
 
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Logo Menu</label>
+                <label for="firstName" class="form-label text-secondary">Logo Menu</label>
                 <div class="row">
                   <div class="col">
                 <input  type="file" class="rounded border border-secondary form-control bg-white p-2" id="logo_nav">
@@ -144,7 +144,7 @@
 
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Color Menu</label>
+                <label for="firstName" class="form-label text-secondary">Color Menu</label>
                 <select class="rounded border border-secondary form-control bg-white  text-dark p-2" id="color_nav" placeholder="Keywords separados por comas (,)" >
                 <option value="<?= $navClass ?>" class="<?= $bgClass ?> <?= $textClass ?>"><?= $navClass ?></option>
                 <option class="text-danger ">Todos los colores disponibles</option>
@@ -173,7 +173,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="firstName" class="form-label">Clave Publica Epayco</label>
+                <label for="firstName" class="form-label text-secondary">Clave Publica Epayco</label>
                 <input  value="<?= $epayco_api ?>" type="password" class="rounded border border-secondary form-control bg-white p-2" id="epayco_api" placeholder="Clave Publica Epayco">
               </div>
               
@@ -191,87 +191,87 @@
             </div>
 
             <div class="mb-3">
-    <label for="facebook" class="form-label">Facebook</label>
+    <label for="facebook" class="form-label text-secondary">Facebook</label>
     <input value="<?= $facebook ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="facebook" name="facebook" placeholder="https://www.facebook.com/">
 </div>
 
 <div class="mb-3">
-    <label for="youtube" class="form-label">YouTube</label>
+    <label for="youtube" class="form-label text-secondary">YouTube</label>
     <input value="<?= $youtube ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="youtube" name="youtube" placeholder="https://www.youtube.com/">
 </div>
 
 <div class="mb-3">
-    <label for="instagram" class="form-label">Instagram</label>
+    <label for="instagram" class="form-label text-secondary">Instagram</label>
     <input value="<?= $instagram ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="instagram" name="instagram" placeholder="https://www.instagram.com/">
 </div>
 
 <div class="mb-3">
-    <label for="linkedin" class="form-label">LinkedIn</label>
+    <label for="linkedin" class="form-label text-secondary">LinkedIn</label>
     <input value="<?= $linkedin ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/">
 </div>
 
 <div class="mb-3">
-    <label for="x" class="form-label">X (anteriormente Twitter)</label>
+    <label for="x" class="form-label text-secondary">X (anteriormente Twitter)</label>
     <input  value="<?= $x ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="x" name="x" placeholder="https://www.x.com/">
 </div>
 
 <div class="mb-3">
-    <label for="github" class="form-label">GitHub</label>
+    <label for="github" class="form-label text-secondary">GitHub</label>
     <input value="<?= $github ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="github" name="github" placeholder="https://www.github.com/">
 </div>
 
 <div class="mb-3">
-    <label for="telegram" class="form-label">Telegram</label>
+    <label for="telegram" class="form-label text-secondary">Telegram</label>
     <input value="<?= $telegram ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="telegram" name="telegram" placeholder="https://www.telegram.me/">
 </div>
 
 <div class="mb-3">
-    <label for="whatsapp" class="form-label">WhatsApp</label>
+    <label for="whatsapp" class="form-label text-secondary">WhatsApp</label>
     <input value="<?= $whatsapp ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="whatsapp" name="whatsapp" placeholder="57312####">
 </div>
 
 <div class="mb-3">
-    <label for="gmail" class="form-label">Gmail</label>
+    <label for="gmail" class="form-label text-secondary">Gmail</label>
     <input value="<?= $gmail ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="gmail" name="gmail" placeholder="example@gmail.com">
 </div>
 
 <div class="mb-3">
-    <label for="skype" class="form-label">Skype</label>
+    <label for="skype" class="form-label text-secondary">Skype</label>
     <input value="<?= $skype ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="skype" name="skype" placeholder="example?call">
 </div>
 
 <div class="mb-3">
-    <label for="pinterest" class="form-label">Pinterest</label>
+    <label for="pinterest" class="form-label text-secondary">Pinterest</label>
     <input value="<?= $pinterest ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="pinterest" name="pinterest" placeholder="https://www.pinterest.com/">
 </div>
 
 <div class="mb-3">
-    <label for="tiktok" class="form-label">TikTok</label>
+    <label for="tiktok" class="form-label text-secondary">TikTok</label>
     <input value="<?= $tiktok ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="tiktok" name="tiktok" placeholder="https://www.tiktok.com/">
 </div>
 
 <div class="mb-3">
-    <label for="snapchat" class="form-label">Snapchat</label>
+    <label for="snapchat" class="form-label text-secondary">Snapchat</label>
     <input value="<?= $snapchat ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="snapchat" name="snapchat" placeholder="https://www.snapchat.com/">
 </div>
 
 <div class="mb-3">
-    <label for="vero" class="form-label">Vero</label>
+    <label for="vero" class="form-label text-secondary">Vero</label>
     <input value="<?= $vero ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="vero" name="vero" placeholder="https://www.vero.co/">
 </div>
 
 <div class="mb-3">
-    <label for="etsy" class="form-label">Etsy</label>
+    <label for="etsy" class="form-label text-secondary">Etsy</label>
     <input value="<?= $etsy ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="etsy" name="etsy" placeholder="https://www.etsy.com/">
 </div>
 
 <div class="mb-3">
-    <label for="reddit" class="form-label">Reddit</label>
+    <label for="reddit" class="form-label text-secondary">Reddit</label>
     <input value="<?= $reddit ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="reddit" name="reddit" placeholder="https://www.reddit.com/">
 </div>
 
 <div class="mb-3">
-    <label for="flickr" class="form-label">Flickr</label>
+    <label for="flickr" class="form-label text-secondary">Flickr</label>
     <input value="<?= $flickr ?>" type="text" class="rounded border border-secondary form-control bg-white p-2" id="flickr" name="flickr" placeholder="https://www.flickr.com/">
 </div>
 
