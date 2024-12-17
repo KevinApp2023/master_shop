@@ -152,19 +152,35 @@ if ($resultado_productos->num_rows > 0) {
 
     <div class="mb-3 mt-3">
   <label for="firstName" class="form-label text-secondary">Galería de imágenes del producto</label>
-  <div class="row">
-    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/PJ-BS202_PTECH_DV_20131217194319.jpg" class="w-100"></div>
-    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/PJ-BS194_PTECHj_G_20131217193723.jpg" class="w-100"></div>
-    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/jack-twitter-20090425-115311.jpg" class="w-100"></div>
-    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/4-8-08-android.jpg" class="w-100"></div>
-    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/PJ-BS194_PTECHj_G_20131217193723.jpg" class="w-100"></div>
-    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/jack-twitter-20090425-115311.jpg" class="w-100"></div>
-    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/4-8-08-android.jpg" class="w-100"></div>
-    <div class="col-6 col-md-3 p-3 image-container d-flex justify-content-center align-items-center "><a href="" class="shadow rounded bg-secondary w-100 h-100 d-flex justify-content-center align-items-center "><i class="bi bi-plus-square text-white fs-1"></i></a></div>
+  <div class="row" id="galeria_producto">
+     
   </div>
+
+  
+
+
+
 </div>
 
 
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+        c_data_products();
+    });
+
+   function c_data_products() {  
+            $.ajax({
+                url: '/dist/assets/etc/galeria_producto.php?id=<?=$id?>', 
+                method: 'GET',
+                success: function(response) {
+                    $('#galeria_producto').html(response);
+                },
+                error: function() {
+                    alert('Hubo un error al actualizar el carrito.');
+                }
+            });
+    };
+</script> 
 
 <style>
  /* Asegura que las columnas tengan la misma altura */
@@ -186,7 +202,7 @@ if ($resultado_productos->num_rows > 0) {
 </style>
 
     <div class="row mt-5 ">
-      <div class="col-md-6 col-12 text-center p-2"><a class="w-100 btn text-white bg-danger"><i class="bi bi-trash me-2"></i>Eliminar</a></div>
+      <div class="col-md-6 col-12 text-center p-2"><a onclick="c_data_products()"class="w-100 btn text-white bg-danger"><i class="bi bi-trash me-2"></i>Eliminar</a></div>
       <div class="col-md-6 col-12 text-center p-2"><a onclick="guardar_cambios()" class="w-100 btn text-white bg-success"><i class="bi bi-floppy me-2"></i>Guardar cambios</a></div>
     </div>
 
