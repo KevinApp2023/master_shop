@@ -7,7 +7,8 @@
     <div class="container-scroller">
     <?php include("../dist/assets/mod/navbar.php");?>
   
-    <div class="main-panel" style="height:100vh; p-0">
+    <div class="main-panel">
+
           <div class="content-wrapper" >
           
           <?=
@@ -101,11 +102,29 @@ if ($resultado_productos->num_rows > 0) {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+      <label for="firstName" class="form-label text-secondary">Lista de categorias</label>
+
+      <select id="add_category" class="rounded border border-secondary form-control bg-white p-2">
+ <option value=""></option>
+      <?php
+$consult_category = "SELECT * FROM category";
+$resultado_category = $conex->query($consult_category);
+$first = true; 
+if ($resultado_category->num_rows > 0) {
+    while ($data_category = $resultado_category->fetch_assoc()) { 
+    echo '<option value="' . $data_category['name'] . '">' .  $data_category['name'] . '</option>';
+
+    }
+  }
+      ?>
+
+</select>
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Agregar</button>
+        <button type="button" class="btn btn-success">Agregar</button>
       </div>
     </div>
   </div>
