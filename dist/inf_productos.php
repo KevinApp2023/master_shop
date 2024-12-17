@@ -173,7 +173,7 @@ if ($resultado_category->num_rows > 0) {
 
     <div class="mb-3">
       <label for="firstName" class="form-label text-secondary">Oferta del día</label>
-      <select id="oferta_dia"   type="number" class="rounded border border-secondary form-control bg-white p-2">
+      <select id="estado"   type="number" class="rounded border border-secondary form-control bg-white p-2">
       <?php if ( $estado == 1){ echo '<option value="1">Activo</option>'; }else{ echo '<option value="0">Inactivo</option>';}?>
       <hr>
       <option value="1">Activo</option>
@@ -480,6 +480,51 @@ if ($resultado_category->num_rows > 0) {
       $('#category').val(updatedValue);
     
   }
+</script>
+
+
+
+<script>
+    function guardar_cambios() {
+        Swal.fire({
+            title: "¿Quieres guardar los cambios?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Guardar",
+            denyButtonText: `No guardar`,
+            icon: 'question',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var form_data = new FormData();
+
+                form_data.append('id', '<?= $id ?>';
+                form_data.append('producto', $('#producto').val());
+                form_data.append('ref', $('#ref').val());
+                form_data.append('category', $('#category').val());
+                form_data.append('valor_producto', $('#valor_producto').val());
+                form_data.append('popular', $('#popular').val());
+                form_data.append('Oferta', $('#Oferta').val());
+                form_data.append('valor_producto_oferta', $('#valor_producto_oferta')[0].files[0]);
+                form_data.append('oferta_dia', $('#oferta_dia').val());
+                form_data.append('estado', $('#estado').val());
+                
+
+                $.ajax({
+                    type: "POST",
+                    url: "/dist/assets/etc/guardar_cambios_producto.php",
+                    data: form_data,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                      window.location.reload();
+                        
+                    }
+                });
+            } else if (result.isDenied) {
+                Swal.fire("Los cambios no se guardan", "", "info");
+            }
+        });
+    }
 </script>
 
 
