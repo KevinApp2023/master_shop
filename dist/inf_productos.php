@@ -34,16 +34,11 @@ if ($resultado_productos->num_rows > 0) {
        $valor_producto = $data_productos['valor_producto'];
        $descripcion = $data_productos['descripcion'];
        $descripcion_completa = $data_productos['descripcion_completa'];
+       $popular = $data_productos['popular'];
        $oferta = $data_productos['oferta'];
        $oferta_dia = $data_productos['oferta_dia'];
-       if ($data_productos['estado'] == 0){
-        $estado = 'disabled';
-        $data_estado = '<h4 class="card-val fst-italic m-0 mt-4 text-danger text-center">Producto desactivado</h4>';
-       }else{
-        $data_estado = 'active';
-        $data_estado = '';
+       $estado = $data_productos['estado'];
 
-       }
     }
 }
 
@@ -104,7 +99,7 @@ if ($resultado_productos->num_rows > 0) {
       <div class="modal-body">
       <label for="firstName" class="form-label text-secondary">Lista de categorias</label>
 
-      <select id="add_category" class="rounded border border-secondary form-control bg-white p-2">
+      <select id="data_add_category" class="rounded border border-secondary form-control bg-white p-2">
  <option value=""></option>
       <?php
 $consult_category = "SELECT * FROM category";
@@ -123,14 +118,72 @@ if ($resultado_category->num_rows > 0) {
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success">Agregar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" onclick="add_category()">Agregar</button>
       </div>
     </div>
   </div>
 </div>
 
     </div>
+
+
+
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Valor del producto</label>
+      <input id="valor_producto" value="<?= $valor_producto ?>"  type="number" class="rounded border border-secondary form-control bg-white p-2"  placeholder="Valor del producto">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Pupular</label>
+      <select id="popular"   type="number" class="rounded border border-secondary form-control bg-white p-2"  >
+      <?php if ( $popular == 1){ echo '<option value="1">Si</option>'; }else{ echo '<option value="0">No</option>';}?>
+      <hr>
+      <option value="1">Si</option>
+      <option value="0">No</option>
+      </select>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Oferta</label>
+      <select id="Oferta"   type="number" class="rounded border border-secondary form-control bg-white p-2" >
+      <?php if ( $Oferta == 1){ echo '<option value="1">Si</option>'; }else{ echo '<option value="0">No</option>';}?>
+      <hr>
+      <option value="1">Si</option>
+      <option value="0">No</option>
+      </select>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Valor del producto en oferta</label>
+      <input id="valor_producto_oferta" value="<?php if ($valor_producto_oferta == 0){echo '';}else{echo $valor_producto_oferta; } ?>"  type="number" class="rounded border border-secondary form-control bg-white p-2"  placeholder="Valor del producto en oferta">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Oferta del día</label>
+      <select id="oferta_dia"   type="number" class="rounded border border-secondary form-control bg-white p-2">
+      <?php if ( $oferta_dia == 1){ echo '<option value="1">Si</option>'; }else{ echo '<option value="0">No</option>';}?>
+      <hr>
+      <option value="1">Si</option>
+      <option value="0">No</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Oferta del día</label>
+      <select id="oferta_dia"   type="number" class="rounded border border-secondary form-control bg-white p-2">
+      <?php if ( $estado == 1){ echo '<option value="1">Activo</option>'; }else{ echo '<option value="0">Inactivo</option>';}?>
+      <hr>
+      <option value="1">Activo</option>
+      <option value="0">Inactivo</option>
+      </select>
+    </div>
+
 
 
 
@@ -156,6 +209,27 @@ if ($resultado_category->num_rows > 0) {
     $('#category').val('');
   };
 </script>
+
+
+
+<script>
+  function add_category() {
+      var selectedCategory = $('#data_add_category').val();
+      var currentValue = $('#category').val();
+      if( currentValue  != '' ) {
+        var updatedValue = currentValue  + ', ' + selectedCategory;
+      }else{
+        var updatedValue = currentValue + selectedCategory;
+      }
+     
+
+      $('#category').val(updatedValue);
+    
+  }
+</script>
+
+
+
 
 
           </div>
