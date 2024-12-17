@@ -14,5 +14,5 @@ if ($resultado_img_productos->num_rows > 0) {
 }
 ?>
 
-<div class="col-6 col-md-3 p-3 image-container d-flex justify-content-center align-items-center "><a href="" class="shadow rounded bg-secondary w-100 h-100 d-flex justify-content-center align-items-center "><i class="bi bi-plus-square text-white fs-1"></i></a></div>
+<div class="col-6 col-md-3 p-3 image-container d-flex justify-content-center align-items-center "><a id="subir_galeria_producto" class="shadow rounded bg-secondary w-100 h-100 d-flex justify-content-center align-items-center "><i class="bi bi-plus-square text-white fs-1"></i></a></div>
 
