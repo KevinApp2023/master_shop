@@ -150,7 +150,6 @@ if ($resultado_productos->num_rows > 0) {
 <nav >
   <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
     <button class="nav-link active" id="nav-descripcion_completa-tab" data-bs-toggle="tab" data-bs-target="#nav-descripcion_completa" type="button" role="tab" aria-controls="nav-descripcion_completa" aria-selected="true">Descripcion</button>
-    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Informacion</button>
     <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Reseñas</button>
   </div>
 </nav>
@@ -158,12 +157,16 @@ if ($resultado_productos->num_rows > 0) {
 
 
   <div class="tab-pane fade show active p-4" id="nav-descripcion_completa" role="tabpanel" aria-labelledby="nav-descripcion_completa-tab" tabindex="0">
-        <?php echo $descripcion_completa; ?>
+      <?php echo $descripcion_completa; ?>
   </div>
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
   <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
 </div>
 </div>
+
+
+
+
+
 
 
 

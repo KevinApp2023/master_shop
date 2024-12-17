@@ -3,8 +3,10 @@ include("../../../config/conex.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = isset($_POST['id']) ? $_POST['id'] : '';
-    $producto = isset($_POST['producto']) ? $_POST['producto'] : '';
     $ref = isset($_POST['ref']) ? $_POST['ref'] : '';
+    $producto = isset($_POST['producto']) ? $_POST['producto'] : '';
+    $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
+    $descripcion_completa = isset($_POST['descripcion_completa']) ? $_POST['descripcion_completa'] : '';
     $category = isset($_POST['category']) ? $_POST['category'] : '';
     $valor_producto = isset($_POST['valor_producto']) ? $_POST['valor_producto'] : '';
     $popular = isset($_POST['popular']) ? $_POST['popular'] : '';
@@ -15,8 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($id != '') {
         $sql = "UPDATE products SET 
-                producto = ?, 
                 ref = ?, 
+                producto = ?, 
+                descripcion = ?, 
+                descripcion_completa = ?, 
                 category = ?, 
                 valor_producto = ?, 
                 popular = ?, 
@@ -27,10 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 WHERE id = ?";
 
         if ($stmt = $conex->prepare($sql)) {
-            $stmt->bind_param("sssssssssi", 
+            $stmt->bind_param("sssssssssssi", 
+                $ref,
                 $producto, 
-                $ref, 
-                $category, 
+                $descripcion,
+                $descripcion_completa,
+                $category,
                 $valor_producto, 
                 $popular, 
                 $Oferta, 
@@ -41,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             );
 
             if ($stmt->execute()) {
-                echo "Producto actualizado correctamente.";
+                echo "success";
             } else {
                 echo "Error al actualizar el producto: " . $stmt->error;
             }

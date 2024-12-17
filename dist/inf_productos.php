@@ -222,7 +222,6 @@ if ($resultado_category->num_rows > 0) {
 </div>
 
 
-
 <script type="importmap">
     {
         "imports": {
@@ -284,12 +283,12 @@ if ($resultado_category->num_rows > 0) {
             height: '500vh'
         })
         
-        .then(editor => {
-            window.editor = editor;
+        .then(editor1 => {
+            window.editor1 = editor1;
 
             // Agregar el evento de clic al botón
             document.getElementById('showHtmlButton').addEventListener('click', () => {
-                const htmlContent = editor.getData();
+                const htmlContent = editor1.getData();
                 alert(htmlContent);
             });
         })
@@ -297,7 +296,6 @@ if ($resultado_category->num_rows > 0) {
             console.error(error);
         });
 </script>
-
 
 
 
@@ -364,19 +362,19 @@ if ($resultado_category->num_rows > 0) {
         })
 
         
-        .then(editor => {
-            window.editor = editor;
+        .then(editor2 => {
+            window.editor2 = editor2;
 
             // Agregar el evento de clic al botón
             document.getElementById('showHtmlButton').addEventListener('click', () => {
-                const htmlContent = editor.getData();
+                const htmlContent = editor2.getData();
                 alert(htmlContent);
             });
         })
         .catch(error => {
             console.error(error);
         });
-</script>
+</script> 
 
 
 
@@ -384,15 +382,6 @@ if ($resultado_category->num_rows > 0) {
 
 
 
-
-
-<script>
-    window.onload = function() {
-        if (window.location.protocol === "file:") {
-            alert("This sample requires an HTTP server. Please serve this file with a web server.");
-        }
-    };
-</script>
 <style>
     .ck {
       height: 40vh; 
@@ -446,7 +435,7 @@ if ($resultado_category->num_rows > 0) {
 
 <div class="row ">
   <div class="col text-center"><a class="w-100 btn text-white bg-danger"><i class="bi bi-trash me-2"></i>Eliminar</a></div>
-  <div class="col text-center"><a class="w-100 btn text-white bg-success"><i class="bi bi-floppy me-2"></i>Guardar cambios</a></div>
+  <div class="col text-center"><a onclick="guardar_cambios()" class="w-100 btn text-white bg-success"><i class="bi bi-floppy me-2"></i>Guardar cambios</a></div>
 </div>
 
 
@@ -458,7 +447,7 @@ if ($resultado_category->num_rows > 0) {
 
 
 
-          <script>
+  <script>
   function dele_category() {
     $('#category').val('');
   };
@@ -483,7 +472,6 @@ if ($resultado_category->num_rows > 0) {
 </script>
 
 
-
 <script>
     function guardar_cambios() {
         Swal.fire({
@@ -495,19 +483,20 @@ if ($resultado_category->num_rows > 0) {
             icon: 'question',
         }).then((result) => {
             if (result.isConfirmed) {
-                var form_data = new FormData();
 
-                form_data.append('id', '<?= $id ?>';
-                form_data.append('producto', $('#producto').val());
+                var form_data = new FormData();
+                form_data.append('id', '<?php echo $id ?>');
                 form_data.append('ref', $('#ref').val());
+                form_data.append('producto', $('#producto').val());
+                form_data.append('descripcion', editor1.getData());
+                form_data.append('descripcion_completa', editor2.getData());
                 form_data.append('category', $('#category').val());
                 form_data.append('valor_producto', $('#valor_producto').val());
                 form_data.append('popular', $('#popular').val());
                 form_data.append('Oferta', $('#Oferta').val());
-                form_data.append('valor_producto_oferta', $('#valor_producto_oferta')[0].files[0]);
+                form_data.append('valor_producto_oferta', $('#valor_producto_oferta').val());
                 form_data.append('oferta_dia', $('#oferta_dia').val());
                 form_data.append('estado', $('#estado').val());
-                
 
                 $.ajax({
                     type: "POST",
@@ -516,8 +505,18 @@ if ($resultado_category->num_rows > 0) {
                     contentType: false,
                     processData: false,
                     success: function(response) {
-                      window.location.reload();
-                        
+                        if (response === 'success') {
+                            Swal.fire("¡Guardado!", "Los cambios han sido guardados correctamente.", "success")
+                                .then(() => {
+                                    window.location.reload();  
+                                });
+                        } else {
+                            Swal.fire("Error", "Ocurrió un error al guardar los cambios.", "error");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire("Error", "No se pudo realizar la solicitud. Inténtalo nuevamente.", "error");
+                        console.error("Error en la solicitud AJAX:", status, error);
                     }
                 });
             } else if (result.isDenied) {
@@ -526,6 +525,7 @@ if ($resultado_category->num_rows > 0) {
         });
     }
 </script>
+
 
 
 
