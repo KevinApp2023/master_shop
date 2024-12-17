@@ -136,3 +136,11 @@ font-weight: 700;
 .header{
 height: 100%;
 }
+
+.ck{
+
+  pointer-events: none;  
+  cursor: not-allowed;   
+
+
+}
