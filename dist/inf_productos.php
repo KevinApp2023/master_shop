@@ -136,7 +136,6 @@ if ($resultado_productos->num_rows > 0) {
 </div>
     </div>
   
-    <hr>
  
     <div class="mb-3">
       <label for="firstName" class="form-label text-secondary">Descripcion corta</label>
@@ -144,7 +143,6 @@ if ($resultado_productos->num_rows > 0) {
          <?= $descripcion ?>
       </div>
     </div>
-<hr>
     <div class="mb-3">
       <label for="firstName" class="form-label text-secondary">Descripcion completa</label>
        <div  id="descripcion_completa"  style="width: 100%;" style="color:black;">
@@ -152,12 +150,44 @@ if ($resultado_productos->num_rows > 0) {
       </div>
     </div>
 
-  
+    <div class="mb-3 mt-3">
+  <label for="firstName" class="form-label text-secondary">Galería de imágenes del producto</label>
+  <div class="row">
+    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/PJ-BS202_PTECH_DV_20131217194319.jpg" class="w-100"></div>
+    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/PJ-BS194_PTECHj_G_20131217193723.jpg" class="w-100"></div>
+    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/jack-twitter-20090425-115311.jpg" class="w-100"></div>
+    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/4-8-08-android.jpg" class="w-100"></div>
+    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/PJ-BS194_PTECHj_G_20131217193723.jpg" class="w-100"></div>
+    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/jack-twitter-20090425-115311.jpg" class="w-100"></div>
+    <div class="col-6 col-md-3 p-3 image-container"><img class="shadow rounded " src="https://www.muycanal.com/wp-content/uploads/2014/01/4-8-08-android.jpg" class="w-100"></div>
+    <div class="col-6 col-md-3 p-3 image-container d-flex justify-content-center align-items-center "><a href="" class="shadow rounded bg-secondary w-100 h-100 d-flex justify-content-center align-items-center "><i class="bi bi-plus-square text-white fs-1"></i></a></div>
+  </div>
+</div>
 
 
-    <div class="row ">
-       <div class="col text-center"><a class="w-100 btn text-white bg-danger"><i class="bi bi-trash me-2"></i>Eliminar</a></div>
-      <div class="col text-center"><a onclick="guardar_cambios()" class="w-100 btn text-white bg-success"><i class="bi bi-floppy me-2"></i>Guardar cambios</a></div>
+
+<style>
+ /* Asegura que las columnas tengan la misma altura */
+.image-container {
+  height: 300px; /* Altura estándar para todas las columnas */
+  display: flex;
+  align-items: center; /* Centra las imágenes verticalmente */
+  justify-content: center; /* Centra las imágenes horizontalmente */
+  overflow: hidden; /* Asegura que no haya desbordamiento */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ajusta la imagen para que quede completamente dentro del contenedor */
+}
+
+
+</style>
+
+    <div class="row mt-5 ">
+      <div class="col-md-6 col-12 text-center p-2"><a class="w-100 btn text-white bg-danger"><i class="bi bi-trash me-2"></i>Eliminar</a></div>
+      <div class="col-md-6 col-12 text-center p-2"><a onclick="guardar_cambios()" class="w-100 btn text-white bg-success"><i class="bi bi-floppy me-2"></i>Guardar cambios</a></div>
     </div>
 
 
