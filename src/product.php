@@ -158,7 +158,7 @@ if ($resultado_productos->num_rows > 0) {
 
 
   <div class="tab-pane fade show active p-4" id="nav-descripcion_completa" role="tabpanel" aria-labelledby="nav-descripcion_completa-tab" tabindex="0">
-      <div id="descripcion_data">
+      <div id="descripcion__completa_data">
       <?php echo $descripcion_completa; ?>
       </div> 
   </div>
@@ -227,11 +227,95 @@ if ($resultado_productos->num_rows > 0) {
         });
 </script>
 
+
+
+
+
+
+<script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.js",
+            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.1.0/"
+        }
+    }
+</script>
+<script type="module">
+    import {
+        ClassicEditor,
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        Font,
+        Heading,
+        List,
+        Link,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        Table,
+        TableToolbar,
+        BlockQuote,
+        Code,
+        CodeBlock,
+        HorizontalLine,
+        PageBreak,
+        SpecialCharacters
+    } from 'ckeditor5';
+
+    ClassicEditor
+        .create(document.querySelector('#descripcion__completa_data'), {
+            plugins: [
+                Essentials, Paragraph, Bold, Italic, Font,
+                Heading, List, Link, Image, ImageCaption,
+                ImageStyle, ImageToolbar, Table, TableToolbar,
+                BlockQuote, Code, CodeBlock, HorizontalLine,
+                PageBreak, SpecialCharacters
+            ],
+            readOnly: true,  
+            toolbar: [       
+               
+            ],
+            isReadOnly: true, 
+            removePlugins: [  
+                
+            ]
+        })
+        .then(editor => {
+            console.log('Editor está en modo solo lectura');
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
   const elementosCK = document.querySelectorAll('.ck');
   elementosCK.forEach(elemento => {
     elemento.style.borderColor = '#00000000';
+    elemento.style.backgroundColor = '#00000000';
   });
 });
 
