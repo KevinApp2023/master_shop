@@ -45,29 +45,16 @@ if ($resultado_productos->num_rows > 0) {
 
           <div class="container rounded card p-4">
 
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#informacion_general" type="button" role="tab" aria-controls="informacion_general" aria-selected="true">Informacion general</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#descripcion_general" type="button" role="tab" aria-controls="descripcion_general" aria-selected="false">Descripciones</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Galeria</button>
-  </li>
-  <li class="nav-item" role="presentation">
-  </li>
-</ul>
-
-
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="informacion_general" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-
+      
     <div class="mb-3">
       <label for="firstName" class="form-label text-secondary">Nombre Producto</label>
       <input id="producto" value="<?= $producto ?>"  type="text" class="rounded border border-secondary form-control bg-white p-2"  placeholder="Producto">
     </div>
 
+    <div class="row">
+    
+   
+    <div class="col-md">
     <div class="mb-3">
       <label for="firstName" class="form-label text-secondary">Referencia</label>
       <input id="ref" value="<?= $ref_producto ?>"  type="text" class="rounded border border-secondary form-control bg-white p-2"  placeholder="Ref">
@@ -84,44 +71,6 @@ if ($resultado_productos->num_rows > 0) {
           <a class="btn text-white bg-success d-flex p-2 " data-bs-toggle="modal" data-bs-target="#add_category"><i class="bi bi-node-plus"></i></a>
         </div>
       </div>
-
-
-<div class="modal fade" id="add_category" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Categoria</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <label for="firstName" class="form-label text-secondary">Lista de categorias</label>
-
-      <select id="data_add_category" class="rounded border border-secondary form-control bg-white p-2">
- <option value=""></option>
-      <?php
-$consult_category = "SELECT * FROM category";
-$resultado_category = $conex->query($consult_category);
-$first = true; 
-if ($resultado_category->num_rows > 0) {
-    while ($data_category = $resultado_category->fetch_assoc()) { 
-    echo '<option value="' . $data_category['name'] . '">' .  $data_category['name'] . '</option>';
-
-    }
-  }
-      ?>
-
-</select>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn text-white bg-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn text-white bg-success" onclick="add_category()">Agregar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
     </div>
 
 
@@ -143,6 +92,9 @@ if ($resultado_category->num_rows > 0) {
       </select>
     </div>
 
+</div>
+
+<div class="col-md">
 
     <div class="mb-3">
       <label for="firstName" class="form-label text-secondary">Oferta</label>
@@ -181,36 +133,18 @@ if ($resultado_category->num_rows > 0) {
       </select>
     </div>
 
-
-
-
-  </div>
+</div>
+    </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <div class="tab-pane fade" id="descripcion_general" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-    
+    <hr>
+ 
     <div class="mb-3">
       <label for="firstName" class="form-label text-secondary">Descripcion corta</label>
        <div  id="descripcion"  style="width: 100%;" style="color:black;">
          <?= $descripcion ?>
       </div>
     </div>
-
+<hr>
     <div class="mb-3">
       <label for="firstName" class="form-label text-secondary">Descripcion completa</label>
        <div  id="descripcion_completa"  style="width: 100%;" style="color:black;">
@@ -218,8 +152,64 @@ if ($resultado_category->num_rows > 0) {
       </div>
     </div>
 
+  
 
+
+    <div class="row ">
+       <div class="col text-center"><a class="w-100 btn text-white bg-danger"><i class="bi bi-trash me-2"></i>Eliminar</a></div>
+      <div class="col text-center"><a onclick="guardar_cambios()" class="w-100 btn text-white bg-success"><i class="bi bi-floppy me-2"></i>Guardar cambios</a></div>
+    </div>
+
+
+
+            
+     </div>
+
+
+
+
+
+     
+<div class="modal fade" id="add_category" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Categoria</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <label for="firstName" class="form-label text-secondary">Lista de categorias</label>
+
+      <select id="data_add_category" class="rounded border border-secondary form-control bg-white p-2">
+ <option value=""></option>
+      <?php
+$consult_category = "SELECT * FROM category";
+$resultado_category = $conex->query($consult_category);
+$first = true; 
+if ($resultado_category->num_rows > 0) {
+    while ($data_category = $resultado_category->fetch_assoc()) { 
+    echo '<option value="' . $data_category['name'] . '">' .  $data_category['name'] . '</option>';
+
+    }
+  }
+      ?>
+
+</select>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn text-white bg-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn text-white bg-success" data-bs-dismiss="modal" onclick="add_category()">Agregar</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
+
 
 
 <script type="importmap">
@@ -280,7 +270,6 @@ if ($resultado_category->num_rows > 0) {
                     'imageTextAlternative', 'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight'
                 ]
             },
-            height: '500vh'
         })
         
         .then(editor1 => {
@@ -358,7 +347,6 @@ if ($resultado_category->num_rows > 0) {
                     'imageTextAlternative', 'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight'
                 ]
             },
-            height: '500vh'
         })
 
         
@@ -376,74 +364,6 @@ if ($resultado_category->num_rows > 0) {
         });
 </script> 
 
-
-
-
-
-
-
-<style>
-    .ck {
-      height: 40vh; 
-    }
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
-
-<div class="row ">
-  <div class="col text-center"><a class="w-100 btn text-white bg-danger"><i class="bi bi-trash me-2"></i>Eliminar</a></div>
-  <div class="col text-center"><a onclick="guardar_cambios()" class="w-100 btn text-white bg-success"><i class="bi bi-floppy me-2"></i>Guardar cambios</a></div>
-</div>
-
-
-</div>
-
-
-            
-          </div>
 
 
 
