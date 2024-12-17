@@ -11,12 +11,9 @@
 
           <div class="content-wrapper" >
           
-          <?=
-          
-          
+          <?php
           $id = $_POST['id']; 
 
-        
 $consult_productos = "SELECT * FROM products WHERE id = '$id'";
 $resultado_productos = $conex->query($consult_productos);
 $first = true; 
@@ -46,14 +43,14 @@ if ($resultado_productos->num_rows > 0) {
 
 
 
-          <div class="container">
+          <div class="container rounded card p-4">
 
           <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#informacion_general" type="button" role="tab" aria-controls="informacion_general" aria-selected="true">Informacion general</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Descripciones</button>
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#descripcion_general" type="button" role="tab" aria-controls="descripcion_general" aria-selected="false">Descripciones</button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Galeria</button>
@@ -83,8 +80,8 @@ if ($resultado_productos->num_rows > 0) {
           <input id="category" value="<?= $category_producto ?>"  type="text" class="d-flex rounded border border-secondary form-control bg-white p-2"  placeholder="Categorias">
         </div>
         <div class="col-auto d-flex">
-          <a class="btn btn-danger  d-flex p-2 me-1" onclick="dele_category()"><i class="bi bi-trash"></i></a>
-          <a class="btn btn-success d-flex p-2 " data-bs-toggle="modal" data-bs-target="#add_category"><i class="bi bi-node-plus"></i></a>
+          <a class="btn text-white bg-danger  d-flex p-2 me-1" onclick="dele_category()"><i class="bi bi-trash"></i></a>
+          <a class="btn text-white bg-success d-flex p-2 " data-bs-toggle="modal" data-bs-target="#add_category"><i class="bi bi-node-plus"></i></a>
         </div>
       </div>
 
@@ -118,8 +115,8 @@ if ($resultado_category->num_rows > 0) {
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success" onclick="add_category()">Agregar</button>
+        <button type="button" class="btn text-white bg-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn text-white bg-success" onclick="add_category()">Agregar</button>
       </div>
     </div>
   </div>
@@ -189,13 +186,270 @@ if ($resultado_category->num_rows > 0) {
 
   </div>
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
-  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="descripcion_general" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Descripcion corta</label>
+       <div  id="descripcion"  style="width: 100%;" style="color:black;">
+         <?= $descripcion ?>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label text-secondary">Descripcion completa</label>
+       <div  id="descripcion_completa"  style="width: 100%;" style="color:black;">
+         <?= $descripcion_completa ?>
+      </div>
+    </div>
+
+
+</div>
+
+
+
+<script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.js",
+            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.1.0/"
+        }
+    }
+</script>
+<script type="module">
+    import {
+        ClassicEditor,
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        Font,
+        Heading,
+        List,
+        Link,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        Table,
+        TableToolbar,
+        BlockQuote,
+        Code,
+        CodeBlock,
+        HorizontalLine,
+        PageBreak,
+        SpecialCharacters
+    } from 'ckeditor5';
+
+    ClassicEditor
+        .create(document.querySelector('#descripcion'), {
+            plugins: [
+                Essentials, Paragraph, Bold, Italic, Font,
+                Heading, List, Link, Image, ImageCaption,
+                ImageStyle, ImageToolbar, Table, TableToolbar,
+                BlockQuote, Code, CodeBlock, HorizontalLine,
+                PageBreak, SpecialCharacters
+            ],
+            toolbar: [
+                'undo', 'redo', '|',
+                'heading', '|',
+                'bold', 'italic', '|',
+                'link', 'bulletedList', 'numberedList', '|',
+                'blockQuote', 'insertTable', 'imageUpload', '|',
+                'code', 'codeBlock', '|',
+                'horizontalLine', 'pageBreak', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+                'specialCharacters'
+            ],
+            image: {
+                toolbar: [
+                    'imageTextAlternative', 'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight'
+                ]
+            },
+            height: '500vh'
+        })
+        
+        .then(editor => {
+            window.editor = editor;
+
+            // Agregar el evento de clic al botón
+            document.getElementById('showHtmlButton').addEventListener('click', () => {
+                const htmlContent = editor.getData();
+                alert(htmlContent);
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+
+
+
+
+<script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.js",
+            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.1.0/"
+        }
+    }
+</script>
+<script type="module">
+    import {
+        ClassicEditor,
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        Font,
+        Heading,
+        List,
+        Link,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        Table,
+        TableToolbar,
+        BlockQuote,
+        Code,
+        CodeBlock,
+        HorizontalLine,
+        PageBreak,
+        SpecialCharacters
+    } from 'ckeditor5';
+
+    ClassicEditor
+        .create(document.querySelector('#descripcion_completa'), {
+            plugins: [
+                Essentials, Paragraph, Bold, Italic, Font,
+                Heading, List, Link, Image, ImageCaption,
+                ImageStyle, ImageToolbar, Table, TableToolbar,
+                BlockQuote, Code, CodeBlock, HorizontalLine,
+                PageBreak, SpecialCharacters
+            ],
+            toolbar: [
+                'undo', 'redo', '|',
+                'heading', '|',
+                'bold', 'italic', '|',
+                'link', 'bulletedList', 'numberedList', '|',
+                'blockQuote', 'insertTable', 'imageUpload', '|',
+                'code', 'codeBlock', '|',
+                'horizontalLine', 'pageBreak', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+                'specialCharacters'
+            ],
+            image: {
+                toolbar: [
+                    'imageTextAlternative', 'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight'
+                ]
+            },
+            height: '500vh'
+        })
+
+        
+        .then(editor => {
+            window.editor = editor;
+
+            // Agregar el evento de clic al botón
+            document.getElementById('showHtmlButton').addEventListener('click', () => {
+                const htmlContent = editor.getData();
+                alert(htmlContent);
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+    window.onload = function() {
+        if (window.location.protocol === "file:") {
+            alert("This sample requires an HTTP server. Please serve this file with a web server.");
+        }
+    };
+</script>
+<style>
+    .ck {
+      height: 40vh; 
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
  
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+
+<div class="row ">
+  <div class="col text-center"><a class="w-100 btn text-white bg-danger"><i class="bi bi-trash me-2"></i>Eliminar</a></div>
+  <div class="col text-center"><a class="w-100 btn text-white bg-success"><i class="bi bi-floppy me-2"></i>Guardar cambios</a></div>
+</div>
+
+
 </div>
 
 

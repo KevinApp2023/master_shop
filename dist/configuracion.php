@@ -279,7 +279,7 @@
        
           </div>
      
-          <div class=" w-100 p-4 pt-0"><a onclick="guardar_cambios()" class="btn btn-success w-100"><i class="bi bi-floppy me-3"></i>Guardar Cambios</a></div>
+          <div class=" w-100 p-4 pt-0"><a onclick="guardar_cambios()" class="btn text-white bg-success w-100"><i class="bi bi-floppy me-3"></i>Guardar Cambios</a></div>
     
           </div>    
           
