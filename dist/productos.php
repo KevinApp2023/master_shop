@@ -44,7 +44,8 @@
                               
                                 </tbody>
                             </table>
-
+                            </div>
+                            
 
                             <script>
       function editar(id) {
@@ -78,25 +79,8 @@
 
 
 
-<script>
-      function eliminar() {
-          
-                Swal.fire({
-                    title: '¿Estás seguro?',
-                    text: '¿Deseas eliminar esteproducto?',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '¡Sí, Continuar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                       
-                    }
-                });
-              }
-    </script>
 
-                            </div>
+               
 
 
 
@@ -131,6 +115,49 @@ function filtrar() {
 </script>
 
 
+
+
+
+
+<script>
+    function eliminar_producto(id) {
+        Swal.fire({
+            title: "¿Quieres eliminar?",
+            showDenyButton: true,
+            confirmButtonText: "Si Eliminar",
+            denyButtonText: `No, Cancelar`,
+            icon: 'question',
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                var form_data = new FormData();
+                form_data.append('id', id);
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/dist/assets/etc/eliminar_producto.php",
+                    data: form_data,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                     
+                            Swal.fire("¡Eliminado!", "El producto se ha eliminado correctamente", "success")
+                                .then(() => {
+                                  filtrar(); 
+                                });
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire("Error", "No se pudo realizar la solicitud. Inténtalo nuevamente.", "error");
+                        console.error("Error en la solicitud AJAX:", status, error);
+                    }
+                });
+            } else if (result.isDenied) {
+                Swal.fire("No se ha eliminado el producto", "", "info");
+            }
+        });
+    }
+</script>
 
 
 

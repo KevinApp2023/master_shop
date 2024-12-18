@@ -87,7 +87,7 @@ if (is_array($estado) && count($estado) > 0) {
  ?></p></td>
 
 <th class="text-center"><a  style="margin:0px; padding:1px; font-size: 25px;" onclick="editar('<?php echo $fila['id']; ?>')" ><i class="bi bi-pencil-square"></i></a>
-      <a  style="margin:0px; padding:1px; font-size: 25px;" onclick="eliminar('<?php echo $fila['id']; ?>')"><i class="bi bi-trash"></i></a></th>
+      <a  style="margin:0px; padding:1px; font-size: 25px;" onclick="eliminar_producto('<?php echo $fila['id']; ?>')"><i class="bi bi-trash"></i></a></th>
       
       
       
