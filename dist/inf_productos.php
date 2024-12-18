@@ -495,6 +495,50 @@ if ($resultado_category->num_rows > 0) {
 
 
 
+<script>
+    function eliminar_producto() {
+        Swal.fire({
+            title: "¿Quieres eliminar?",
+            showDenyButton: true,
+            confirmButtonText: "Si Eliminar",
+            denyButtonText: `No, Cancelar`,
+            icon: 'question',
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                var form_data = new FormData();
+                form_data.append('id', '<?php echo $id ?>');
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/dist/assets/etc/eliminar_producto.php",
+                    data: form_data,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                     
+                            Swal.fire("¡Eliminado!", "El producto se ha eliminado correctamente", "success")
+                                .then(() => {
+                                    window.location = "/admin/productos";  
+                                });
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire("Error", "No se pudo realizar la solicitud. Inténtalo nuevamente.", "error");
+                        console.error("Error en la solicitud AJAX:", status, error);
+                    }
+                });
+            } else if (result.isDenied) {
+                Swal.fire("No se ha eliminado el producto", "", "info");
+            }
+        });
+    }
+</script>
+
+
+
+
+
 
 
           </div>
