@@ -1,0 +1,37 @@
+<?php 
+include("../../../config/conex.php"); 
+$id = $_POST['id'];
+
+$consult_img_productos = "SELECT * FROM img_productos WHERE productos = ?";
+if ($stmt = $conex->prepare($consult_img_productos)) {
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $resultado_img_productos = $stmt->get_result();
+
+    if ($resultado_img_productos->num_rows >= 1) {
+        
+        if (isset($_FILES['agregar_nueva_galeria_data']) && $_FILES['agregar_nueva_galeria_data']['error'] === 0) {
+            $agregar_nueva_galeria_data = $_FILES['agregar_nueva_galeria_data'];
+            $agregar_nueva_galeria_data_path = '/img/products/' . date('Y_m_d') . basename($agregar_nueva_galeria_data['name']);
+            $agregar_nueva_galeria_data_path_s = '../../../img/products/' . date('Y_m_d')  . basename($agregar_nueva_galeria_data['name']);
+
+            if (move_uploaded_file($agregar_nueva_galeria_data['tmp_name'], $agregar_nueva_galeria_data_path_s)) {
+                $sql = "INSERT INTO img_productos (img, productos) VALUES (?, ?)";
+                if ($stmt = $conex->prepare($sql)) {
+                    $stmt->bind_param("si", $agregar_nueva_galeria_data_path, $id);
+                    $stmt->execute();
+                    $stmt->close();
+                }
+            }
+        }
+    } else {
+        $sql = "UPDATE products SET ref = ? WHERE id = ?";
+        if ($stmt = $conex->prepare($sql)) {
+            $ref = "Valor_de_ref";  
+            $stmt->bind_param("si", $ref, $id);
+            $stmt->execute();
+            $stmt->close();
+        }
+    }
+}
+?>

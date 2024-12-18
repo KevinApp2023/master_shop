@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Si se sube un archivo (icono o logo de navegación), procesarlo
     if ($icon && $icon['error'] === 0) {
         $icon_path = '/img/' . basename($icon['name']);
-        $icon_path_s = '../../../img/' . basename($logo_nav['name']);
+        $icon_path_s = '../../../img/' . basename($icon['name']);
         move_uploaded_file($icon['tmp_name'], $icon_path_s);
         $config_values['icon'] = $icon_path;  // Guardamos la ruta del archivo subido
     }
