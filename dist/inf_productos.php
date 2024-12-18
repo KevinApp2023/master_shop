@@ -202,7 +202,7 @@ if ($resultado_productos->num_rows > 0) {
 </style>
 
     <div class="row mt-5 ">
-      <div class="col-md-6 col-12 text-center p-2"><a onclick="c_data_products()"class="w-100 btn text-white bg-danger"><i class="bi bi-trash me-2"></i>Eliminar</a></div>
+      <div class="col-md-6 col-12 text-center p-2"><a onclick="eliminar_producto()"class="w-100 btn text-white bg-danger"><i class="bi bi-trash me-2"></i>Eliminar</a></div>
       <div class="col-md-6 col-12 text-center p-2"><a onclick="guardar_cambios()" class="w-100 btn text-white bg-success"><i class="bi bi-floppy me-2"></i>Guardar cambios</a></div>
     </div>
 
