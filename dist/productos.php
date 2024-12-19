@@ -16,7 +16,15 @@
             <div class=" col-xl col-md-12 order-2 order-md-1 mb-4">
               <div class="consult">
                 <label class="text-secondary">Buscar producto</label>
-              <input id="buscar_producto" type="search" class="form-control bg-white rounded mt-2" placeholder="Producto" aria-label="Search">
+           <div class="row">
+            <div class="col">
+            <input id="buscar_producto" type="search" class="form-control bg-white rounded mt-2" placeholder="Producto" aria-label="Search">
+            </div>
+            <div class="col-auto">
+              <a  data-bs-toggle="modal" data-bs-target="#crear_nuevo_producto" class="btn btn-dark  mt-2 p-3"><i class="bi bi-plus-square me-2"></i>Nuevo</a>
+            </div>
+           </div>
+            
               </div>
 
               <div class="hscroll mt-2 mb-2">
@@ -45,9 +53,40 @@
                                 </tbody>
                             </table>
                             </div>
-                            
 
-                            <script>
+
+<script>
+function crear_nuevo_producto() {
+    $.ajax({
+        url: "/dist/assets/etc/crear_nuevo_producto.php",
+        method: 'POST',
+        data: { 
+            producto: document.getElementById('producto').value,
+        },
+        success: function(response) {
+            var form = $('<form>', {
+                'method': 'GET',
+                'action': '/admin/inf/productos' 
+            });
+            
+            $('<input>').attr({
+                'type': 'hidden',
+                'name': 'id',
+                'value': 'response' 
+            }).appendTo(form);
+            
+            form.appendTo('body').submit();
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    }); 
+}
+</script>
+
+
+
+<script>
       function editar(id) {
                 Swal.fire({
                     title: "¿Estás seguro?",
@@ -79,17 +118,14 @@
 
 
 
-
                
 
 
 
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Ejecutar la función filtrar cuando se cargue la página
     filtrar();
 
-    // Ejecutar la función filtrar cuando se presione "Enter" en el input#buscar_producto
     document.getElementById('buscar_producto').addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
             filtrar();
@@ -189,6 +225,28 @@ function filtrar() {
             </div>
           </div>
 
+
+
+<div class="modal fade" id="crear_nuevo_producto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar nuevo producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="mb-3">
+                <label for="firstName" class="form-label text-secondary">Producto</label>
+                <input  type="text" class="rounded border border-secondary form-control bg-white p-2" id="producto" placeholder="Producto">
+              </div>
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn bg-danger   text-white" data-bs-dismiss="modal"><i class="bi bi-x-circle me-2"></i>Cerrar</a>
+        <a type="button" class="btn bg-primary text-white" onclick="crear_nuevo_producto()"><i class="bi bi-plus-square me-2"></i>Agregar</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
