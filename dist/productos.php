@@ -65,14 +65,14 @@ function crear_nuevo_producto() {
         },
         success: function(response) {
             var form = $('<form>', {
-                'method': 'GET',
+                'method': 'POST',
                 'action': '/admin/inf/productos' 
             });
             
             $('<input>').attr({
                 'type': 'hidden',
                 'name': 'id',
-                'value': 'response' 
+                'value': response 
             }).appendTo(form);
             
             form.appendTo('body').submit();

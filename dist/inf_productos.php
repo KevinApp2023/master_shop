@@ -124,7 +124,7 @@ if ($resultado_productos->num_rows > 0) {
     </div>
 
     <div class="mb-3">
-      <label for="firstName" class="form-label text-secondary">Oferta del día</label>
+      <label for="firstName" class="form-label text-secondary">Estado</label>
       <select id="estado"   type="number" class="rounded border border-secondary form-control bg-white p-2">
       <?php if ( $estado == 1){ echo '<option value="1">Activo</option>'; }else{ echo '<option value="0">Inactivo</option>';}?>
       <hr>
