@@ -32,9 +32,7 @@ if ($resultado->num_rows > 0) {
         $estado[] .= '<i class="bi bi-circle-fill text-success"></i> '; 
         if($fila['popular'] == 1) {
             $estado[] .= '<i class="bi bi-circle-fill text-primary"></i> '; 
-        } else {
-            $estado[] .= '<i class="bi bi-circle-fill text-secondary"></i> ';
-        }
+        } 
     
         if($fila['oferta'] == 1) {
             $valor_producto = '<span class="card-val fst-italic text-decoration-line-through m-0 text-danger" > $' . $fila['valor_producto'] . '</span><br> $' .  $fila['valor_producto_oferta']; 
