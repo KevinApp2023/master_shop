@@ -24,7 +24,6 @@ if ($resultado_productos->num_rows > 0) {
        $d_producto = $data_productos['id'];
        $ref_producto = $data_productos['ref'];
        $category_producto = $data_productos['category'];
-       $img_producto = $data_productos['img_producto'];
        $url_producto = preg_replace('/[ ,.]/', '_', $data_productos['producto']);
        $valor_producto_oferta = $data_productos['valor_producto_oferta'];
        $valor_producto = $data_productos['valor_producto'];

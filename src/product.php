@@ -58,10 +58,21 @@ $first = true;
 if ($resultado_productos->num_rows > 0) {
     while ($data_productos = $resultado_productos->fetch_assoc()) { 
 
+      $id = $data_productos['id'];
+
+      $consult_img_productos = "SELECT * FROM img_productos WHERE  productos = '$id' LIMIT 1 ";
+      $resultado_img_productos = $conex->query($consult_img_productos);
+      if ($resultado_img_productos->num_rows > 0) {
+          while ($data_img_productos = $resultado_img_productos->fetch_assoc()) { 
+
+
+
        $d_producto = $data_productos['id'];
        $ref_producto = $data_productos['ref'];
        $category_producto = $data_productos['category'];
-       $img_producto = $data_productos['img_producto'];
+
+       $img_producto = $data_img_productos['img'];
+
        $url_producto = preg_replace('/[ ,.]/', '_', $data_productos['producto']);
        $producto = $data_productos['producto'];
        $valor_producto_oferta = $data_productos['valor_producto_oferta'];
@@ -81,7 +92,8 @@ if ($resultado_productos->num_rows > 0) {
        }
     }
 }
-
+    }
+}
 
 
 ?>

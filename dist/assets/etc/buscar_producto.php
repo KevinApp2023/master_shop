@@ -15,6 +15,14 @@ $sql = "SELECT * FROM products $where";
 $resultado = $conex->query($sql);
 if ($resultado->num_rows > 0) {
   while ($fila = $resultado->fetch_assoc()) { 
+
+    $id = $fila['id'];
+
+    $consult_img_productos = "SELECT * FROM img_productos WHERE  productos = '$id' LIMIT 1 ";
+    $resultado_img_productos = $conex->query($consult_img_productos);
+    if ($resultado_img_productos->num_rows > 0) {
+        while ($data_img_productos = $resultado_img_productos->fetch_assoc()) { 
+
     
     if($fila['estado'] != 1) {
         $estado = '<i class="bi bi-circle-fill text-secondary"></i> ';
@@ -64,7 +72,7 @@ if ($resultado->num_rows > 0) {
       margin-bottom:0px;
       margin-top:0px;
       margin-right: 0px;">
-                            <img class="" src="<?php echo $fila['img_producto']?>" alt="" style="  max-width: 100%;
+                            <img class="" src="<?php echo $data_img_productos['img']?>" alt="" style="  max-width: 100%;
         max-height: auto%;
       object-fit: contain;
      
@@ -99,6 +107,8 @@ if (is_array($estado) && count($estado) > 0) {
     </tr>
     <?php
   }
+}
+}
 }
 ?>
 

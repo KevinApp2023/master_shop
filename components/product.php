@@ -33,6 +33,14 @@ $consult_data_c = "SELECT * FROM products $where ";
 $resultado_data_c = $conex->query($consult_data_c);
 if ($resultado_data_c->num_rows > 0) {
     while ($data_c = $resultado_data_c->fetch_assoc()) { 
+
+      $id = $data_c['id'];
+
+      $consult_img_productos = "SELECT * FROM img_productos WHERE  productos = '$id' LIMIT 1 ";
+      $resultado_img_productos = $conex->query($consult_img_productos);
+      if ($resultado_img_productos->num_rows > 0) {
+          while ($data_img_productos = $resultado_img_productos->fetch_assoc()) { 
+
 ?>
 
 <div class="col-12 col-md-4 card-oferta d-flex mb-2 mt-2 p-0 m-0 ">
@@ -41,7 +49,7 @@ if ($resultado_data_c->num_rows > 0) {
         <div class="row rounded shadow p-2 m-0">
 
         <div class="col-4 col-md-12 border border-top-0 border-end-0 border-start-0 d-flex align-items-center" >
-          <img src="<?php echo $data_c['img_producto']; ?>" class="card-img-top">
+          <img src="<?php echo $data_img_productos['img']; ?>" class="card-img-top">
         </div>
 
 
@@ -74,6 +82,8 @@ if ($resultado_data_c->num_rows > 0) {
 <?php
     }
   }
+}
+}
 ?>
 
 

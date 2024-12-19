@@ -23,11 +23,18 @@ $consult_oferta_dia = "SELECT * FROM (SELECT * FROM products WHERE oferta_dia = 
 $resultado_oferta_dia = $conex->query($consult_oferta_dia);
 if ($resultado_oferta_dia->num_rows > 0) {
     while ($data_oferta_dia = $resultado_oferta_dia->fetch_assoc()) { 
+
+$id = $data_oferta_dia['id'];
+
+$consult_oferta_dia_img_productos = "SELECT * FROM img_productos WHERE  productos = '$id' LIMIT 1 ";
+$resultado_oferta_dia_img_productos = $conex->query($consult_oferta_dia_img_productos);
+if ($resultado_oferta_dia_img_productos->num_rows > 0) {
+    while ($data_oferta_dia_img_productos = $resultado_oferta_dia_img_productos->fetch_assoc()) { 
 ?>
 
 <div class="col-6 col-md-3 card-oferta d-flex ">
         <div class="card  p-3">
-        <img src="<?php echo $data_oferta_dia['img_producto']; ?>" class="card-img-top">
+        <img src="<?php echo $data_oferta_dia_img_productos['img']; ?>" class="card-img-top">
         
         <a href="/product/<?php echo $data_oferta_dia['id']; ?>/<?php echo preg_replace('/[ ,.]/', '_', $data_oferta_dia['producto']); ?>">
           <p class="card-title">
@@ -44,7 +51,9 @@ if ($resultado_oferta_dia->num_rows > 0) {
 
 <?php
     }
-  }
+  }   
+ }
+}
 ?>
 
 

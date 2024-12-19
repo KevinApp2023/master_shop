@@ -23,11 +23,19 @@ $consult_oferta = "SELECT * FROM (SELECT * FROM products WHERE oferta = '1'  AND
 $resultado_oferta = $conex->query($consult_oferta);
 if ($resultado_oferta->num_rows > 0) {
     while ($data_oferta = $resultado_oferta->fetch_assoc()) { 
+
+      $id = $data_oferta['id'];
+
+$consult_oferta_img_productos = "SELECT * FROM img_productos WHERE  productos = '$id' LIMIT 1 ";
+$resultado_oferta_img_productos = $conex->query($consult_oferta_img_productos);
+if ($resultado_oferta_img_productos->num_rows > 0) {
+    while ($data_oferta_img_productos = $resultado_oferta_img_productos->fetch_assoc()) { 
+
 ?>
 
 <div class="col-6 col-md-3 card-oferta d-flex ">
         <div class="card  p-3 ">
-        <img src="<?php echo $data_oferta['img_producto']; ?>" class="card-img-top">
+        <img src="<?php echo $data_oferta_img_productos['img']; ?>" class="card-img-top">
           
         <a href="/product/<?php echo $data_oferta['id']; ?>/<?php echo preg_replace('/[ ,.]/', '_', $data_oferta['producto']); ?>">
           
@@ -47,6 +55,8 @@ if ($resultado_oferta->num_rows > 0) {
 <?php
     }
   }
+}
+}
 ?>
 
 
