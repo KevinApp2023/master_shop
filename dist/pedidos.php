@@ -62,47 +62,6 @@
             
 
 
-           
-           <script>
-  async function fecha_inicio() {
-    const { value: selectedDate } = await Swal.fire({
-      title: 'Seleccione la fecha inicio',
-      input: 'date',
-      
-    });
-
-    if (selectedDate) {
-      const formattedDate = formatDate(selectedDate);
-      document.getElementById('fecha_inicio').value = formattedDate;
-    }
-  }
-
-  function formatDate(date) {
-    const [year, month, day] = date.split('-');
-    return `${year}-${month}-${day}`;
-  }
-</script>
-
-
-<script>
-  async function fecha_final() {
-    const { value: selectedDate } = await Swal.fire({
-      title: 'Seleccione la fecha de limite',
-      input: 'date',
-      
-    });
-
-    if (selectedDate) {
-      const formattedDate = formatDate(selectedDate);
-      document.getElementById('fecha_final').value = formattedDate;
-    }
-  }
-
-  function formatDate(date) {
-    const [year, month, day] = date.split('-');
-    return `${year}-${month}-${day}`;
-  }
-</script>
 
 
               </div>
@@ -119,7 +78,7 @@
       <th class=" p-2 ">Fecha</th>
       <th class=" p-2 ">Hora</th>
       <th class=" p-2 ">Cliente</th>
-      <th class=" p-2 ">Pedido</th>
+      <th class=" p-2 ">N° Pedido</th>
       <th class=" p-2 ">Total</th>
       <th class=" p-2 ">Estado</th>
       <th class=" p-2 w-auto">Acciones</th>
