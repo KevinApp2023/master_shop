@@ -44,6 +44,7 @@ try {
     $conex->commit();
     unset($_SESSION['cart']);
     unset($_SESSION['pedido']);
+    header("Location: /");
 
 } catch (Exception $e) {
     $conex->rollback();
