@@ -119,7 +119,10 @@ function pagar_factura() {
                 lang: '<?php echo $lang; ?>',
                 external: false,
                 reference: '<?php echo $_SESSION['pedido']; ?>',
-                response: '<?= $url ?>procesar?n_pedido=<?php echo $_SESSION['pedido']; ?>&total=<?php echo $_SESSION['total']; ?>',
+                response: 'https://192.168.18.161/mi/procesar?n_pedido=<?php echo $_SESSION['pedido']; ?>&total=<?php echo $_SESSION['total']; ?>',
+                acepted: 'https://192.168.18.161/mi/procesar?n_pedido=<?php echo $_SESSION['pedido']; ?>&total=<?php echo $_SESSION['total']; ?>',
+                pending: 'https://192.168.18.161/mi/procesar?n_pedido=<?php echo $_SESSION['pedido']; ?>&total=<?php echo $_SESSION['total']; ?>',
+                rejected: 'https://192.168.18.161/mi/procesar?n_pedido=<?php echo $_SESSION['pedido']; ?>&total=<?php echo $_SESSION['total']; ?>',
             };
             checkout.open(data);
         }

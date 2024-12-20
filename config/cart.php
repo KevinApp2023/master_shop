@@ -1,6 +1,7 @@
 <?php
 include("../config/conex.php");
 include("../config/config.php");
+
 $_SESSION['total'] = 0;
 
 if (!empty($_SESSION['cart'])) {
