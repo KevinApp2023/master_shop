@@ -166,7 +166,7 @@ if(empty($_GET['category'])){ ?>
       <div class="form_login ">
             <div >
               <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
-              <input type="email" class="form-control" id="user" placeholder="usuario@mail.com">
+              <input type="email" class="form-control" id="correo" placeholder="usuario@mail.com">
             </div>
             <div class="mt-4">
                 <label for="inputPassword5" class="form-label">Contraseña</label>
@@ -223,11 +223,11 @@ $(document).ready(function() {
   $('#acceso').click(function(e) {
     e.preventDefault(); 
 
-    var user = $('#user').val();
+    var correo = $('#correo').val();
     var pass = $('#pass').val();
 
     var datos_acceso = {
-        user: user,
+        correo: correo,
         pass: pass
     };
 

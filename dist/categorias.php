@@ -70,14 +70,6 @@ function crear_nueva_categoria() {
 }
 </script>
 
-
-
-
-
-               
-
-
-
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     filtrar();
@@ -105,11 +97,6 @@ function filtrar() {
     });
 }
 </script>
-
-
-
-
-
 
 <script>
     function eliminar_producto(id) {
