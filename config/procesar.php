@@ -9,7 +9,13 @@ $estado = '1';
 
 // Estado 1 = pendiente
 // Estado 2 = Aprobado
-// Estado 3 = Rechazado
+// Estado 3 = Confirmado
+// Estado 4 = En proceso
+// Estado 5 = Enviado
+// Estado 6 = Entregado
+// Estado 7 = Cancelado
+// Estado 8 = Devuelto
+// Estado 9 = Reembolsado
 
 $conex->begin_transaction();
 
