@@ -2,9 +2,12 @@
 include("../config/conex.php");
 include("../config/config.php");
 
+$cliente = $_SESSION['id'];
 $n_pedido = $_GET['n_pedido'];
 $total = $_GET['total'];
 $ref = $_GET['ref_payco'];
+$fecha = date('Y-m-d');
+$hora = date('H:i:s');
 $estado = '1';
 
 // Estado 1 = pendiente
@@ -20,9 +23,9 @@ $estado = '1';
 $conex->begin_transaction();
 
 try {
-    $sql_factura = "INSERT INTO facturas (n_pedido, total, ref, estado) VALUES (?, ?, ?, ?)";
+    $sql_factura = "INSERT INTO facturas ( fecha, hora, cliente, n_pedido, total, ref, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt_factura = $conex->prepare($sql_factura);
-    $stmt_factura->bind_param("sdsi", $n_pedido, $total, $ref, $estado);
+    $stmt_factura->bind_param("ssssssi",  $fecha, $hora, $cliente, $n_pedido, $total, $ref, $estado);
 
     if (!$stmt_factura->execute()) {
         throw new Exception("Error al insertar factura: " . $stmt_factura->error);
