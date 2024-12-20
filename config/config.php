@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+date_default_timezone_set('America/Bogota');
 
 
 
@@ -9,7 +9,7 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = []; 
 }
 
-$consult = "SELECT * FROM config WHERE name IN ('color_nav', 'url', 'title', 'keywords', 'author', 'description', 'icon', 'logo_nav', 'epayco_api', 'lang', 'color_top', 'facebook', 'youtube', 'instagram', 'linkedin', 'x', 'github', 'telegram', 'whatsapp', 'gmail', 'skype', 'texto_top', 'pinterest', 'tiktok', 'snapchat', 'vero', 'etsy', 'reddit', 'flickr')";
+$consult = "SELECT * FROM config WHERE name IN ('color_nav', 'url', 'title', 'keywords', 'author', 'description', 'icon', 'logo_nav', 'epayco_api', 'lang', 'color_top', 'facebook', 'youtube', 'instagram', 'linkedin', 'x', 'github', 'telegram', 'whatsapp', 'gmail', 'skype', 'texto_top', 'pinterest', 'tiktok', 'snapchat', 'vero', 'etsy', 'reddit', 'flickr', 'NIT')";
 $resultado = $conex->query($consult);
 
 if ($resultado->num_rows > 0) {
@@ -125,6 +125,9 @@ if ($resultado->num_rows > 0) {
                 $flickr = $data['data'];
                 break;
                 
+            case 'NIT':
+                $NIT = $data['data'];
+                break;
   
         
         }
@@ -320,3 +323,6 @@ switch ($lang) {
         $idioma = 'Idioma no disponible';
         break;
 }
+
+
+
