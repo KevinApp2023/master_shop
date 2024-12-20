@@ -84,11 +84,18 @@
     <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito de compras</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
+ 
   <div class="offcanvas-body">
 <div id="data_cart">
 
 </div>
+</div>
 
+<div class="w-100 text-center position-absolute  float-bottom bottom-0 p-3 p-0 ">
+<a href="/cart/checkout" class="w-75 btn position-relative <?php echo $TopbgClass . " " . $ToptextClass; ?>"><i class="bi bi-cart4 me-2"></i>Continuar con el pago</a>
+</div>
+
+</div>
 
 
 
@@ -147,8 +154,8 @@ if(empty($_GET['category'])){ ?>
             });
     };
 </script> 
-  </div>
-</div>
+
+
 
 
 
@@ -209,9 +216,6 @@ const appendAlert = (message, type) => {
 
   alertPlaceholder.append(wrapper)
 }
-
-
-
 
 </script>
 
