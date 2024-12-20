@@ -58,11 +58,13 @@
                                    <?php
                                    if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
                                     if ($_SESSION['priv'] == 1){ ?>
-                                        <a href="/admin/panel"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0"><i class="bi bi-person-gear me-2"></i>Administrador</a>
+                                        <a href="/admin/panel"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Administrador</a>
+                                        <a href="/mi/cerrar_sesion"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0"><i class="bi bi-box-arrow-right"></i></a>
                                         
                                     <?php }
                                     if ($_SESSION['priv'] == 2){ ?>
-                                        <a href="/mi/perfil"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0"><i class="bi bi-person-circle me-2"></i>Mi Perfil</a>
+                                        <a href="/mi/perfil"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Mi Perfil</a>
+                                        <a href="/mi/cerrar_sesion"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0"><i class="bi bi-box-arrow-right"></i></a>
                                    <?php }
                                 }else{ ?>
                                     <a data-bs-toggle="modal" data-bs-target="#login" class="col btn <?= $btnClass ?> w-100 m-2 mt-2 mb-0">Acceso</a>
@@ -221,9 +223,22 @@ const appendAlert = (message, type) => {
 
 
 
-
 <script>
 $(document).ready(function() {
+  $('#correo').on('keypress', function(e) {
+    if (e.which == 13) { 
+      e.preventDefault();
+      $('#pass').focus();  
+    }
+  });
+
+  $('#pass').on('keypress', function(e) {
+    if (e.which == 13) { 
+      e.preventDefault();
+      $('#acceso').click(); 
+    }
+  });
+
   $('#acceso').click(function(e) {
     e.preventDefault(); 
 

@@ -9,6 +9,12 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = []; 
 }
 
+if (!isset($_SESSION['pedido'])) {
+    $microtime = microtime(true);  
+    $milliseconds = round(($microtime - floor($microtime)) * 1000);
+    $_SESSION['pedido'] = date('Y') .'A'. date('m') .'E'. date('d') .'R'. date('H') .'S'. date('i') .'F'. date('s') .'A'. str_pad($milliseconds, 3, '0', STR_PAD_LEFT); 
+}
+
 $consult = "SELECT * FROM config WHERE name IN ('color_nav', 'url', 'title', 'keywords', 'author', 'description', 'icon', 'logo_nav', 'epayco_api', 'lang', 'color_top', 'facebook', 'youtube', 'instagram', 'linkedin', 'x', 'github', 'telegram', 'whatsapp', 'gmail', 'skype', 'texto_top', 'pinterest', 'tiktok', 'snapchat', 'vero', 'etsy', 'reddit', 'flickr', 'NIT')";
 $resultado = $conex->query($consult);
 
