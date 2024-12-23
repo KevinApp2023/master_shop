@@ -52,20 +52,63 @@
 
 
                 <div class="col-md-6">
+
                 <div class="hscroll mt-3 mb-2">
-  <table class="table table-bordered  rounded" id="tabla_datos">
-    <thead>
-      <tr>
-        <th class=" p-2 ">Producto</th>
-        <th class=" p-2 ">Unitario</th>
-        <th class=" p-2 ">Cantidad</th>
-        <th class=" p-2 ">Subtotal</th>
-      </tr>
-    </thead>
-    <tbody id="resultadoBusqueda">
-    </tbody>
-  </table>
-</div>
+                  <table class="table table-bordered  rounded" id="tabla_datos">
+                    <thead>
+                      <tr>
+                        <th class=" p-2 ">Producto</th>
+                        <th class=" p-2 ">Unitario</th>
+                        <th class=" p-2 ">Cantidad</th>
+                        <th class=" p-2 ">Subtotal</th>
+                      </tr>
+                    </thead>
+                    <tbody id="resultadoBusqueda">
+                    </tbody>
+                  </table>
+                </div>
+
+                <hr>
+
+                <div class="row">
+
+                <div class="col mb-2 p-2 d-flex">
+                <select class="border-light-subtle bg-white form-control custom-input p-3 d-flex" id="registrar_estado" name="estado" > 
+                <option value="" >Estado</option>  
+                <option value="1" >pendiente</option>  
+                <option value="2" >Aprobado</option>  
+                <option value="3" >Confirmado</option>  
+                <option value="4" >En proceso</option>  
+                <option value="5" >Enviado</option>  
+                <option value="6" >Entregado</option>  
+                <option value="7" >Cancelado</option>  
+                <option value="8" >Devuelto</option>  
+                <option value="9" >Reembolsado</option>  
+                </select>
+                </div>
+
+                <div class="col-auto mb-2 p-2 d-flex">
+                  <a onclick="registrar_estado()" class="btn bg-dark text-white">Registrar estado</a>
+                </div>
+
+            
+                </div>
+
+                <div class="hscroll mt-3 mb-2">
+                  <table class="table table-bordered  rounded" id="tabla_datos">
+                    <thead>
+                      <tr>
+                        <th class=" p-2 ">Fecha</th>
+                        <th class=" p-2 ">Hora</th>
+                        <th class=" p-2 ">Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody id="resultadoBusqueda_estado">
+                    </tbody>
+                  </table>
+                </div>
+
+
                 </div>
               </div>
 
@@ -131,6 +174,8 @@
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     filtrar();
+    filtrar_estado();
+    buscar();
 
 });
 
@@ -149,12 +194,23 @@ function filtrar() {
         }
     });
 }
-</script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-  buscar();
-});
+
+function filtrar_estado() {
+    $.ajax({
+        url: "/dist/assets/etc/buscar_inf_pedidos_estados.php",
+        method: 'POST',
+        data: { 
+          pedido: document.getElementById('pedido').value,
+        },
+        success: function(response) {
+            $('#resultadoBusqueda_estado').html(response);
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
+}
 
 function buscar() {
     var id = '<?php echo $_POST['id']; ?>';
@@ -181,6 +237,30 @@ function buscar() {
         alert('El ID no es válido.');
     }
 };
+
+function registrar_estado() {
+  var n_pedido =  $('#pedido').val();
+  var estado =  $('#registrar_estado').val();
+
+  $.ajax({
+            url: '/dist/assets/etc/registrar_estado.php',
+            method: 'POST',
+            data: { 
+              n_pedido: n_pedido,
+              estado: estado
+             },
+            success: function(data) {
+              filtrar();
+              filtrar_estado();
+              buscar();
+            },
+            error: function() {
+                alert('Ocurrió un error al procesar la solicitud.');
+            }
+        });
+}
+
+
 </script>
 
           
