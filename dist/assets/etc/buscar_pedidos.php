@@ -63,7 +63,7 @@ if ($resultado->num_rows > 0) {
     <td><?php echo $fila['n_pedido']; ?></td>
     <td><?php echo $fila['total']; ?></td>
     <td><?php echo $estado_texto; ?></td>
-    <td class="text-center"><a style="margin:0px; padding:1px; font-size: 25px;" onclick="eliminar_producto('<?php echo $fila['id']; ?>')"><i class="bi bi-trash"></i></a></td>
+    <td class="text-center"><a style="margin:0px; padding:1px; font-size: 25px;" onclick="ver_pedido('<?php echo $fila['id']; ?>')"><i class="bi bi-layout-text-sidebar-reverse"></i></a></td>
     </tr>
     <?php
   }

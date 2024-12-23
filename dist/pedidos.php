@@ -161,6 +161,24 @@ function filtrar() {
 </script>
 
 
+<script>
+function ver_pedido(id) {
+   var form = $('<form>', {
+                'method': 'POST',
+                'action': '/admin/inf/pedidos' 
+            });
+            
+            $('<input>').attr({
+                'type': 'hidden',
+                'name': 'id',
+                'value': id 
+            }).appendTo(form);
+            
+            form.appendTo('body').submit();
+        }
+</script>
+
+
 
 
             </div>
