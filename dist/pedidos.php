@@ -54,7 +54,7 @@
             </div>
 
             <div class="col-md-auto col mb-2 p-2 d-flex justify-content-center align-items-center ">
-            <a class="rounded text-center bg-primary text-white w-100 p-2 ps-3 h-100 d-flex justify-content-center align-items-center"><i class="bi bi-search me-2"></i></a>
+            <a onclick="filtrar()"class="rounded text-center bg-primary text-white w-100 p-2 ps-3 h-100 d-flex justify-content-center align-items-center"><i class="bi bi-search me-2"></i></a>
             </div>
 
 
@@ -119,22 +119,13 @@
 
 
 <script>window.addEventListener('DOMContentLoaded', function() {
-    // Obtener el elemento con la clase .hscroll
     var hscrollElement = document.querySelector('.hscroll');
-    
-    // Función para ajustar la altura de .hscroll al máximo de la pantalla visible
     function ajustarAltura() {
-        var windowHeight = window.innerHeight; // Altura de la ventana del navegador
-        var hscrollElementRect = hscrollElement.getBoundingClientRect(); // Dimensiones del elemento .hscroll
-        
-        // Calcular la nueva altura
+        var windowHeight = window.innerHeight;
+        var hscrollElementRect = hscrollElement.getBoundingClientRect()
         var nuevaAltura = windowHeight - hscrollElementRect.top;
-        
-        // Aplicar la nueva altura al elemento .hscroll
         hscrollElement.style.maxHeight = nuevaAltura + 'px';
     }
-    
-    // Llamar a la función para ajustar la altura cuando la página se carga y se cambia el tamaño de la ventana
     ajustarAltura();
     window.addEventListener('resize', ajustarAltura);
 });
@@ -151,9 +142,14 @@ function filtrar() {
     $.ajax({
         url: "/dist/assets/etc/buscar_pedidos.php",
         method: 'POST',
-       // data: { 
-       //    // buscar_categoria: document.getElementById('buscar_categoria').value,
-       // },
+        data: { 
+          pedido: document.getElementById('pedido').value,
+          fecha_inicio: document.getElementById('fecha_inicio').value,
+          fecha_final: document.getElementById('fecha_final').value,
+          nombres: document.getElementById('nombres').value,
+          apellidos: document.getElementById('apellidos').value,
+          estado: document.getElementById('estado').value,
+        },
         success: function(response) {
             $('#resultadoBusqueda').html(response);
         },
