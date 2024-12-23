@@ -34,3 +34,4 @@ RewriteRule ^admin/configuracion$ /dist/configuracion.php [L,QSA]
 
 RewriteRule ^admin/inf/productos$ /dist/inf_productos.php [L,QSA]
 RewriteRule ^admin/inf/pedidos$ /dist/inf_pedidos.php [L,QSA]
+RewriteRule ^admin/inf/clientes$ /dist/inf_clientes.php [L,QSA]
