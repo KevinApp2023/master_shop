@@ -15,35 +15,38 @@
                  
                 <div class="mb-3">
                   <label for="firstName" class="form-label text-secondary">N° Pedido</label>
-                  <input value="" type="text" class="rounded border border-secondary form-control bg-white p-2" id="pedido">
+                  <input value="" disabled type="text" class="rounded border border-secondary form-control bg-white p-2" id="pedido">
                 </div>
 
                 <div class="mb-3">
                   <label for="firstName" class="form-label text-secondary">Cliente</label>
-                  <input value="" type="text" class="rounded border border-secondary form-control bg-white p-2" id="cliente">
+                  <input value="" disabled type="text" class="rounded border border-secondary form-control bg-white p-2" id="cliente">
                 </div>
 
                 <div class="row">
                   <div class="mb-3 col-6">
                     <label for="firstName" class="form-label text-secondary">Fecha</label>
-                    <input value="" type="text" class="rounded border border-secondary form-control bg-white p-2" id="fecha">
+                    <input value="" disabled type="text" class="rounded border border-secondary form-control bg-white p-2" id="fecha">
                   </div>
                   <div class="mb-3 col-6">
                     <label for="firstName" class="form-label text-secondary">Hora</label>
-                    <input value="" type="text" class="rounded border border-secondary form-control bg-white p-2" id="hora">
+                    <input value="" disabled type="text" class="rounded border border-secondary form-control bg-white p-2" id="hora">
                   </div>
                 </div>
 
                 <div class="mb-3">
                   <label for="firstName" class="form-label text-secondary">Referencia Pago</label>
-                  <input value="" type="text" class="rounded border border-secondary form-control bg-white p-2" id="ref">
+                  <input value="" disabled type="text" class="rounded border border-secondary form-control bg-white p-2" id="ref">
                 </div>
 
-         
+                <div class="mb-3">
+                  <label for="firstName" class="form-label text-secondary">Total</label>
+                  <input value="" disabled type="text" class="rounded border border-secondary form-control bg-white p-2" id="total">
+                </div>
 
                 <div class="mb-3">
                   <label for="firstName" class="form-label text-secondary">Estado</label>
-                  <input value="" type="text" class="rounded border border-secondary form-control bg-white p-2" id="estado">
+                  <input value="" disabled type="text" class="rounded border border-secondary form-control bg-white p-2" id="estado">
                 </div>
 
 
@@ -74,7 +77,7 @@
 
                 <div class="col mb-2 p-2 d-flex">
                 <select class="border-light-subtle bg-white form-control custom-input p-3 d-flex" id="registrar_estado" name="estado" > 
-                <option value="" >Estado</option>  
+                <option class="bg-dark text-white" >Estado</option>  
                 <option value="1" >pendiente</option>  
                 <option value="2" >Aprobado</option>  
                 <option value="3" >Confirmado</option>  
@@ -226,6 +229,7 @@ function buscar() {
                     $('#fecha').val(data.fecha);
                     $('#hora').val(data.hora);
                     $('#ref').val(data.ref);
+                    $('#total').val(data.total);
                     $('#estado').val(data.estado);
               
             },
@@ -250,6 +254,21 @@ function registrar_estado() {
               estado: estado
              },
             success: function(data) {
+              const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "success",
+  title: "Estado actualizado"
+});
               filtrar();
               filtrar_estado();
               buscar();

@@ -24,9 +24,3 @@ if ($resultado->num_rows > 0) {
   }
 }
 ?>
-    <tr>
-    <td></td>
-    <td></td>
-    <td><p class="m-0">Total:</p></td>
-    <td><p class="m-0"><?php echo $total; ?></p></td>
-    </tr>
