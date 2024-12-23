@@ -8,15 +8,21 @@
     <?php include("../dist/assets/mod/navbar.php");?>
   
     <div class="main-panel">
-
           <div class="content-wrapper" >
           
               
 
-          </div>
-    <?php  include("../dist/assets/mod/footer.php"); ?>
+
+
+
+
+
+
+
 
           
+          </div>
+    <?php  include("../dist/assets/mod/footer.php"); ?>
         </div>
       </div>
     </div>

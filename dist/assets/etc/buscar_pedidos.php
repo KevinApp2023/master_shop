@@ -1,6 +1,5 @@
 <?php 
 include("../../../config/conex.php"); 
-date_default_timezone_set('America/Bogota');
 
 $pedido = $_POST['pedido'];
 
