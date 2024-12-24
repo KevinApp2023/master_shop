@@ -53,7 +53,6 @@ if ($resultado->num_rows > 0) {
   while ($fila = $resultado->fetch_assoc()) { 
     ?>
     <tr>
-    <td class="text-center"><i class="bi bi-circle-fill text-dark"></i></td>
     <td><?php echo $fila['nombres']; ?></td>
     <td><?php echo $fila['apellidos']; ?></td>
     <td><?php echo $fila['correo']; ?></td>

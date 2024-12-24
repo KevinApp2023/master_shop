@@ -19,8 +19,8 @@
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
                   <img class="img-md rounded-circle" src="/dist/assets/images/faces/face8.jpg" alt="Profile image">
-                  <p class="mb-1 mt-3">Henry Klein</p>
-                  <p class="font-weight-light text-muted mb-0">kleinhenry@gmail.com</p>
+                  <p class="mb-1 mt-3"><?= $_SESSION['nombres']; ?></p>
+                  <p class="font-weight-light text-muted mb-0"><?= $_SESSION['correo']; ?></p>
                 </div>
                 <a class="dropdown-item" href="/mi/cerrar_sesion"><i class="dropdown-item-icon icon-power text-primary"></i>Cerrar Sesion</a>
               </div>
@@ -49,7 +49,7 @@
             <div class="dot-indicator bg-success"></div>
           </div>
           <div class="text-wrapper">
-            <p class="profile-name">Henry Klein</p>
+            <p class="profile-name"><?= $_SESSION['nombres']; ?></p>
             <p class="designation">Administrador</p>
           </div>
           <div class="icon-container">

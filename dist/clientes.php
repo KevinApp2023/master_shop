@@ -1,7 +1,7 @@
 <?php include("../config/conex.php"); ?>
 <?php include("../config/config.php"); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <?php include("../dist/assets/mod/head.php");?>
   <body>
     <div class="container-scroller">
@@ -69,7 +69,6 @@
                         
                                 <thead>
                                     <tr>
-      <th class=" p-2 "></th>
       <th class=" p-2 ">Nombres</th>
       <th class=" p-2 ">Apellidos</th>
       <th class=" p-2 ">Correo</th>

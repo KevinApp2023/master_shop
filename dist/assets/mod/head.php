@@ -1,3 +1,9 @@
+<?php
+if($_SESSION['priv'] != 1){
+header('Location: /');
+}
+?>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
