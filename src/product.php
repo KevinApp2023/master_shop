@@ -159,11 +159,10 @@ if ($resultado_productos->num_rows > 0) {
 
 
 
-<div class="container p-0">
+<div class="container p-0 mt-5">
 <nav >
   <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-    <button class="nav-link active" id="nav-descripcion_completa-tab" data-bs-toggle="tab" data-bs-target="#nav-descripcion_completa" type="button" role="tab" aria-controls="nav-descripcion_completa" aria-selected="true">Descripcion</button>
-    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Reseñas</button>
+    <button class="nav-link active" id="nav-descripcion_completa-tab" data-bs-toggle="tab" data-bs-target="#nav-descripcion_completa" type="button" role="tab" aria-controls="nav-descripcion_completa" aria-selected="true">Descripcion general</button>
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -174,7 +173,7 @@ if ($resultado_productos->num_rows > 0) {
       <?php echo $descripcion_completa; ?>
       </div> 
   </div>
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+
 </div>
 </div>
 

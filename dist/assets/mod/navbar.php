@@ -113,12 +113,6 @@
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="/admin/comentarios">
-          <span class="menu-title">comentarios</span>
-          <i class="bi bi-chat-square-text menu-icon"></i>
-        </a>
-      </li>
 
       <li class="nav-item">
         <a class="nav-link" href="/admin/configuracion">
