@@ -1,6 +1,6 @@
 <div class="footer  m-0 <?= $bgClass . " " . $textClass ?>">
 <div class="container mt-5 p-2  <?= $bgClass . " " . $textClass ?>">
-  <footer class="py-5 ">
+  <footer class="pt-5  ">
     <div class="row">
       <div class="col-6 col-md-4 mb-3 p-4 ">
       <img src="<?php echo $logoNav; ?>" class="img-fluid mb-3 ">
@@ -42,13 +42,8 @@
       </div>
     </div>
 
-    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+    <div class="d-flex flex-column flex-sm-row justify-content-between  border-top py-3">
       <p>© <?php echo date('Y') . " " .  $title; ?>. Todos los derechos reservados.</p>
-      <ul class="list-unstyled d-flex">
-        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-      </ul>
     </div>
   </footer>
 </div>

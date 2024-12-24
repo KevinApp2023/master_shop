@@ -58,18 +58,38 @@
                                    <?php
                                    if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
                                     if ($_SESSION['priv'] == 1){ ?>
-                                        <a href="/admin/panel"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Administrador</a>
-                                        <a href="/mi/cerrar_sesion"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0"><i class="bi bi-box-arrow-right"></i></a>
+                                    <div class="col">
+                                    <a href="/admin/panel"class=" btn <?= $btnClass ?>  w-100  mt-2 mb-0"><i class="bi bi-person-gear"></i> Administrador</a>
+                                    </div>
+
+                                    <div class="col-auto">
+                                    <a href="/mi/cerrar_sesion"class=" btn <?= $btnClass ?>  w-100  mt-2 mb-0"><i class="bi bi-box-arrow-right"></i></a>
+                                    </div>
                                         
                                     <?php }
                                     if ($_SESSION['priv'] == 2){ ?>
-                                        <a href="/mi/perfil"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Mi Perfil</a>
-                                        <a href="/mi/cerrar_sesion"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0"><i class="bi bi-box-arrow-right"></i></a>
+                                    <div class="col">
+                                        <a href="/mi/perfil"class=" btn <?= $btnClass ?>  w-100   mt-2 mb-0"> <i class="bi bi-person-circle"></i> Mi Perfil</a>
+                                    </div>
+                                    <div class="col-auto">
+                                    <a href="/mi/cerrar_sesion"class=" btn <?= $btnClass ?>  mt-2 mb-0"><i class="bi bi-box-arrow-right"></i></a>
+                                    </div>
                                    <?php }
                                 }else{ ?>
-                                    <a data-bs-toggle="modal" data-bs-target="#login" class="col btn <?= $btnClass ?> w-100 m-2 mt-2 mb-0">Acceso</a>
-                                    <a href="/etc/register"class="col btn <?= $btnClass ?>  w-100 m-2 mt-2 mb-0">Registrar</a>
-                                <?php } ?>
+
+                                    <div class="col">
+                                    <a data-bs-toggle="modal" data-bs-target="#login" class=" btn <?= $btnClass ?> w-100  mt-2 mb-0">Acceso</a>
+                                    </div>
+
+                                    <div class="col">
+                                    <a href="/etc/register"class=" btn <?= $btnClass ?>  w-100  mt-2 mb-0">Registrar</a>
+                                    </div>
+
+
+
+                               
+                               
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
